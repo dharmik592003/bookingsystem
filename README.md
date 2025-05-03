@@ -35,4 +35,4 @@
 1. **Clone the repository**
 
 ```bash
-git clone https://github.com/your-username/bookingsystem.git
+git clone https://github.com/dharmik592003/bookingsystem.git
