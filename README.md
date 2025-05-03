@@ -1,45 +1,40 @@
 # BookingSystem – Multi-Service Booking Platform
 
-BookingSystem is a full-stack, cross-platform booking system inspired by Airbnb, built to support a wide range of services beyond accommodation, such as healthcare, event spaces, room rentals, and more. It features mobile support, automated approval systems, advanced analytics, and scalable cloud deployment.
+**BookingSystem** is a full-stack web-based booking platform inspired by Airbnb, developed using **Laravel** and run locally using **XAMPP**. It supports a wide variety of services such as accommodation, healthcare, event booking, and more. The system includes automated approvals, real-time analytics, and scalable architecture suitable for cloud hosting.
 
 ## 🚀 Features
 
-- 📱 **Mobile App (Android/iOS)** – Book and manage services on the go  
-- 🤖 **Automated Approval System** – Faster service verification using smart workflows  
-- 📊 **Advanced Reporting & Analytics** – Admin and agency dashboards for real-time insights  
-- ☁️ **Scalable Cloud Infrastructure** – Deployed for high availability and performance  
-- 🧩 **Expanded Service Categories** – Healthcare, events, rooms, and other custom services  
+- ✅ **Role-Based Access** – Admin, Agency, and Customer panels  
+- 🔐 **Secure Booking Flow** – Availability checks and controlled service access  
+- 📊 **Advanced Reporting** – Visual dashboards with trends and analytics  
+- 🤖 **Automated Approval System** – Smart system for listing and booking approval  
+- ☁️ **Cloud Ready** – Deployable to AWS, Firebase, DigitalOcean, etc.  
+- 🧩 **Multi-Service Categories** – Event spaces, healthcare, transportation, etc.
 
 ## 🧱 Tech Stack
 
-- **Frontend:** Flutter (Mobile), HTML/CSS/JS (Admin Dashboard)  
-- **Backend:** Laravel (PHP)  
-- **Database:** MySQL  
-- **API:** RESTful APIs built with Laravel  
-- **Authentication:** Session-based and Token-based for mobile  
-- **Cloud Hosting:** AWS / Firebase / DigitalOcean (configurable)  
-- **Analytics:** Custom reports with chart libraries (e.g., Chart.js, ApexCharts)  
+- **Backend:** Laravel (PHP 8+)  
+- **Database:** MySQL (via XAMPP)  
+- **Authentication:** Laravel Auth (Session-based)  
+- **Frontend:** Blade Templates with Bootstrap  
+- **Reporting:** Chart.js / ApexCharts  
+- **Local Server:** XAMPP (Apache + MySQL)
 
 ## 📸 Screenshots
 
-> Add screenshots here from your mobile app and admin panel for better visibility.
+> *(Add screenshots here of your dashboard, booking interface, and reports)*
 
 ## 🔧 Installation
 
 ### Prerequisites
-- PHP 8+
-- Composer
-- MySQL
-- Node.js (for frontend builds if applicable)
-- Flutter SDK (for mobile app)
 
-### Backend Setup
+- [XAMPP](https://www.apachefriends.org/index.html) (PHP 8+, Apache, MySQL)
+- Composer
+- Git
+
+### Setup Instructions
+
+1. **Clone the repository**
 
 ```bash
 git clone https://github.com/your-username/bookingsystem.git
-cd bookingsystem/backend
-composer install
-cp .env.example .env
-php artisan key:generate
-php artisan migrate
-php artisan serve
