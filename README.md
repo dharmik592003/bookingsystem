@@ -20,9 +20,7 @@
 - **Reporting:** Chart.js / ApexCharts  
 - **Local Server:** XAMPP (Apache + MySQL)
 
-## 📸 Screenshots
 
-> *(Add screenshots here of your dashboard, booking interface, and reports)*
 
 ## 🔧 Installation
 
