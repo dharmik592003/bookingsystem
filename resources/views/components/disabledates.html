@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>How To Disable Specific Dates In jQuery Datepicker</title>
+    <link href="http://code.jquery.com/ui/1.9.2/themes/smoothness/jquery-ui.css" rel="stylesheet" />
+    <script src="http://code.jquery.com/jquery-1.8.3.min.js"></script>
+    <script src="http://code.jquery.com/ui/1.9.2/jquery-ui.js"></script>
+    <style type="text/css">
+        .container {
+            border-radius: 5px;
+            padding: 50px 20px;
+            margin: 30px auto;
+            width: 40%;
+            border: 2px solid #bbb;
+            text-align: center;
+        }
+        
+        input {
+            padding: 5px;
+            background-color: #eeeeee;
+        }
+        
+        h2 {
+            text-align: center;
+            margin-top: 100px;
+            font-weight: 600;
+        }
+    </style>
+</head>
+
+<body>
+    <h2>How To Disable Specific Dates In jQuery Datepicker</h2>
+    <div class="container">
+        <label>Select Date :</label>
+        <input type="text" class="date">
+    </div>
+</body>
+<script type="text/javascript">
+    var array = ["05-12-2025", "08-2-2025", "07-2-2025", "21-2-2025"];
+
+    $("input").datepicker({
+        beforeShowDay: function(date) {
+            var string = jQuery.datepicker.formatDate('dd-mm-yy', date);
+            return [array.indexOf(string) == -1]
+        }
+    });
+</script>
+
+</html>

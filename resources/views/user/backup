@@ -1,0 +1,549 @@
+     $.ajax({
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content'),
+                },
+                type: "get",
+                url: "{{route('avaiblity', [$services->id, $services->type->id])}}",
+                success: function (data) {
+                    if (data.length != 0) {
+                        let bookedDates = [];
+                        for (let i = 0; i < data.date.length; i++) {
+                            let from = new Date(data.date[i].from);
+                            let to = new Date(data.date[i].to);
+                            while (from <= to) {
+                                bookedDates.push(jQuery.datepicker.formatDate('yyyy-mm-dd', from));
+                                from.setDate(from.getDate() + 1);
+                            }
+                        }
+
+                        function daysdisable(date) {
+                            var string = jQuery.datepicker.formatDate('yyyy-mm-dd', date);
+                            var isBooked = bookedDates.includes(string);
+                            var isBeforeToday = new Date(date) < new Date().setHours(0, 0, 0, 0);
+                            return [!isBeforeToday, isBooked ? 'booked' : ''];
+                        }
+                        $("#from").datepicker({
+                            dateFormat: 'yy-mm-dd',
+                            minDate: 0,
+                            beforeShowDay: daysdisable,
+                            onSelect: function (selectedDate) {
+                                startDate = $(this).datepicker('getDate');
+                                $("#to").datepicker("option", "minDate", startDate);
+                            }
+                        });
+
+                        $("#to").datepicker({
+                            dateFormat: 'yy-mm-dd',
+                            minDate: 0,
+                            beforeShowDay: daysdisable,
+                            onSelect: function (selectedDate) {
+                                endDate = $(this).datepicker('getDate');
+                                $("#from").datepicker("option", "maxDate", endDate);
+                                updateTimeSlots();
+                            }
+                        });
+                        function updateTimeSlots() {
+                            const checkinTime = $('#checkin-time');
+                            const checkoutTime = $('#checkout-time');
+                            if (!checkinTime.data('value')) {
+                                checkinTime.data('value', checkinTime.html());
+                                checkoutTime.data('value', checkoutTime.html());
+                            }
+                            checkinTime.html(checkinTime.data('originalOptions'));
+                            checkoutTime.html(checkoutTime.data('originalOptions'));
+                            if (startDate && endDate) {
+                                checkinTime.find('option').each(function () {
+                                    const hour = parseInt($(this).val());
+                                    if (hour < 10 || hour > 20) {
+                                        $(this).remove();
+                                    }
+                                });
+                                checkoutTime.find('option').each(function () {
+                                    const hour = parseInt($(this).val());
+                                    if (hour < 10 || hour > 20) {
+                                        $(this).remove();
+                                    }
+                                });
+                            }
+                        }
+                        $("#from, #to").on('change', updateTimeSlots);
+                        updateTimeSlots();
+                    }
+                    else {
+                        $("#from").datepicker({
+                            dateFormat: 'yy-mm-dd',
+                            minDate: 0,
+                            onSelect: function (selectedDate) {
+                                startDate = $(this).datepicker('getDate');
+                                $("#to").datepicker("option", "minDate", startDate);
+                            }
+                        });
+                        $("#to").datepicker({
+                            dateFormat: 'yy-mm-dd',
+                            minDate: 0,
+                            onSelect: function (selectedDate) {
+                                endDate = $(this).datepicker('getDate');
+                                $("#from").datepicker("option", "maxDate", endDate);
+                            }
+                        });
+                    }
+                }
+            });
+        });
+
+
+        $.ajax({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content'),
+            },
+            type: "get",
+            url: "{{route('avaiblity', [$services->id, $services->type->id])}}",
+            success: function (data) {
+                if (data.booked_slots && data.available_slots) {
+                    // Process booked slots to disable dates
+                    let bookedDates = [];
+                    data.booked_slots.forEach(function(slot) {
+                        let from = new Date(slot.from);
+                        let to = new Date(slot.to);
+                        while (from <= to) {
+                            bookedDates.push(jQuery.datepicker.formatDate('yyyy-mm-dd', from));
+                            from.setDate(from.getDate() + 1);
+                        }
+                    });
+
+                    function daysdisable(date) {
+                        var string = jQuery.datepicker.formatDate('yyyy-mm-dd', date);
+                        var isBooked = bookedDates.includes(string);
+                        var isBeforeToday = new Date(date) < new Date().setHours(0, 0, 0, 0);
+                        return [!isBeforeToday, isBooked ? 'booked' : ''];
+                    }
+                    $("#from").datepicker({
+                        dateFormat: 'yy-mm-dd',
+                        minDate: 0,
+                        beforeShowDay: daysdisable,
+                        onSelect: function (selectedDate) {
+                            startDate = $(this).datepicker('getDate');
+                            $("#to").datepicker("option", "minDate", startDate);
+                        }
+                    });
+
+                    $("#to").datepicker({
+                        dateFormat: 'yy-mm-dd',
+                        minDate: 0,
+                        beforeShowDay: daysdisable,
+                        onSelect: function (selectedDate) {
+                            endDate = $(this).datepicker('getDate');
+                            $("#from").datepicker("option", "maxDate", endDate);
+                            updateTimeSlots();
+                        }
+                    });
+                    function updateTimeSlots(availableSlots) {
+                        const checkinTime = $('#checkin-time');
+                        const checkoutTime = $('#checkout-time');
+                        
+                        // Clear existing options
+                        checkinTime.empty();
+                        checkoutTime.empty();
+                        
+                        // Add available slots
+                        availableSlots.forEach(function(slot) {
+                            if (slot.available) {
+                                const timeRange = slot.start + ' - ' + slot.end;
+                                checkinTime.append($('<option></option>')
+                                    .attr('value', slot.start)
+                                    .text(timeRange));
+                                checkoutTime.append($('<option></option>')
+                                    .attr('value', slot.end)
+                                    .text(timeRange));
+                            }
+                        });
+                    }
+                    // Update time slots with available slots data
+                    updateTimeSlots(data.available_slots);
+                }
+                else {
+                    $("#from").datepicker({
+                        dateFormat: 'yy-mm-dd',
+                        minDate: 0,
+                        onSelect: function (selectedDate) {
+                            startDate = $(this).datepicker('getDate');
+                            $("#to").datepicker("option", "minDate", startDate);
+                        }
+                    });
+                    $("#to").datepicker({
+                        dateFormat: 'yy-mm-dd',
+                        minDate: 0,
+                        onSelect: function (selectedDate) {
+                            endDate = $(this).datepicker('getDate');
+                            $("#from").datepicker("option", "maxDate", endDate);
+                        }
+                    });
+                }
+            }
+        });
+    });
+</script>
+<!-- <s
+
+
+<script>
+$.ajax({
+    headers: {
+        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content'),
+    },
+    type: "get",
+    url: "{{route('availability', [$services->id, $services->type->id])}}",
+
+    success: function (data) {
+        console.log(data);
+        if (data.bookedslots && data.available_slots) {
+          
+            let bookedDates = [];
+            data.booked_slots.forEach(function (slot) {
+                let from = new Date(slot.from);
+                let to = new Date(slot.to);
+                while (from <= to) {
+                    bookedDates.push(jQuery.datepicker.formatDate('yyyy-mm-dd', from));
+                    from.setDate(from.getDate() + 1);
+                }
+            });
+
+            function daysdisable(date) {
+                var string = jQuery.datepicker.formatDate('yyyy-mm-dd', date);
+                var isBooked = bookedDates.some(bookedDate => 
+                    string >= bookedDate.from && string <= bookedDate.to
+                );
+                var isBeforeToday = new Date(date) < new Date().setHours(0, 0, 0, 0);
+                return [!isBeforeToday, isBooked ? 'booked' : ''];
+            }
+            console.log(bookedDates);
+            $("#from").datepicker({
+                dateFormat: 'yy-mm-dd',
+                minDate: 0,
+                beforeShowDay: daysdisable,
+                onSelect: function (selectedDate) {
+                    startDate = $(this).datepicker('getDate');
+                    $("#to").datepicker("option", "minDate", startDate);
+                    $.ajax({
+                        headers: {
+                            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content'),
+                        },
+                        type: "get",
+                        url: "{{route('availability', [$services->id, $services->type->id])}}",
+                        data: {
+                            date: selectedDate
+                        },
+                        success: function (data) {
+                            console.log(data);
+                            if (data.booked_slots && data.available_slots) {
+                                // Process booked slots to disable dates
+                                let bookedDates = [];
+                                data.booked_slots.forEach(function (slot) {
+                                    let from = new Date(slot.from);
+                                    let to = new Date(slot.to);
+                                    while (from <= to) {
+                                        bookedDates.push(jQuery.datepicker.formatDate('yyyy-mm-dd', from));
+                                        from.setDate(from.getDate() + 1);
+                                    }
+                                });
+                                console.log(bookedDates); // Log booked dates
+
+                                function daysdisable(date) {
+                                    var string = jQuery.datepicker.formatDate('yyyy-mm-dd', date);
+                                    var isBooked = bookedDates.includes(string);
+                                    var isBeforeToday = new Date(date) < new Date().setHours(0, 0, 0, 0);
+                                    return [!isBeforeToday, isBooked ? 'booked' : ''];
+                                }
+                                $("#to").datepicker({
+                                    dateFormat: 'yy-mm-dd',
+                                    minDate: 0,
+                                    beforeShowDay: daysdisable,
+                                    onSelect: function (selectedDate) {
+                                        endDate = $(this).datepicker('getDate');
+                                        $("#from").datepicker("option", "maxDate", endDate);
+                                        updateTimeSlots();
+                                    }
+                                });
+                                function updateTimeSlots(availableSlots) {
+                                    const checkinTime = $('#checkin-time');
+                                    const checkoutTime = $('#checkout-time');
+
+                                    // Clear existing options
+                                    checkinTime.empty();
+                                    checkoutTime.empty();
+
+                                    // Add available slots
+                                    availableSlots.forEach(function (slot) {
+                                        const timeRange = slot.start + ' - ' + slot.end;
+                                        const option = $('<option></option>')
+                                            .attr('value', slot.start)
+                                            .text(timeRange);
+
+                                        if (!slot.available) {
+                                            option.attr('disabled', true)
+                                                .css('color', '#ff6b6b')
+                                                .css('text-decoration', 'line-through');
+                                        }
+
+                                        checkinTime.append(option);
+
+                                        const checkoutOption = $('<option></option>')
+                                            .attr('value', slot.end)
+                                            .text(timeRange);
+
+                                        if (!slot.available) {
+                                            checkoutOption.attr('disabled', true)
+                                                .css('color', '#ff6b6b')
+                                                .css('text-decoration', 'line-through');
+                                        }
+
+                                        checkoutTime.append(checkoutOption);
+                                    });
+                                }
+                                // Update time slots with available slots data
+                                updateTimeSlots(data.available_slots);
+                            }
+                            else {
+                                $("#to").datepicker({
+                                    dateFormat: 'yy-mm-dd',
+                                    minDate: 0,
+                                    onSelect: function (selectedDate) {
+                                        endDate = $(this).datepicker('getDate');
+                                        $("#from").datepicker("option", "maxDate", endDate);
+                                    }
+                                });
+                            }
+                        }
+                    });
+                }
+            });
+
+            $("#to").datepicker({
+                dateFormat: 'yy-mm-dd',
+                minDate: 0,
+                beforeShowDay: daysdisable,
+                onSelect: function (selectedDate) {
+                    endDate = $(this).datepicker('getDate');
+                    $("#from").datepicker("option", "maxDate", endDate);
+                    updateTimeSlots();
+                }
+            });
+            function updateTimeSlots(availableSlots) {
+                const checkinTime = $('#checkin-time');
+                const checkoutTime = $('#checkout-time');
+
+                // Clear existing options
+                checkinTime.empty();
+                checkoutTime.empty();
+
+                // Add available slots
+                availableSlots.forEach(function (slot) {
+                    const timeRange = slot.start + ' - ' + slot.end;
+                    const option = $('<option></option>')
+                        .attr('value', slot.start)
+                        .text(timeRange);
+
+                    // Check if slot is booked
+                    const isBooked = data.bookedSlots.some(bookedSlot => 
+                        (slot.start >= bookedSlot.check_in && slot.start < bookedSlot.check_out) ||
+                        (slot.end > bookedSlot.check_in && slot.end <= bookedSlot.check_out)
+                    );
+
+                    if (!slot.available || isBooked) {
+                        option.attr('disabled', true)
+                            .css('color', '#ff6b6b')
+                            .css('text-decoration', 'line-through');
+                    }
+
+                    checkinTime.append(option);
+
+                    const checkoutOption = $('<option></option>')
+                        .attr('value', slot.end)
+                        .text(timeRange);
+
+                    if (!slot.available || isBooked) {
+                        checkoutOption.attr('disabled', true)
+                            .css('color', '#ff6b6b')
+                            .css('text-decoration', 'line-through');
+                    }
+
+                    checkoutTime.append(checkoutOption);
+                });
+            }
+            // Update time slots with available slots data
+            updateTimeSlots(data.available_slots);
+        }
+        else {
+            $("#from").datepicker({
+                dateFormat: 'yy-mm-dd',
+                minDate: 0,
+                onSelect: function (selectedDate) {
+                    startDate = $(this).datepicker('getDate');
+                    $("#to").datepicker("option", "minDate", startDate);
+                }
+            });
+            $("#to").datepicker({
+                dateFormat: 'yy-mm-dd',
+                minDate: 0,
+                onSelect: function (selectedDate) {
+                    endDate = $(this).datepicker('getDate');
+                    $("#from").datepicker("option", "maxDate", endDate);
+                }
+            });
+        }
+    }
+});
+</script>
+
+<script>
+let startDate, endDate;
+
+function fetchAvailability() {
+    $.ajax({
+headers: {
+'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content'),
+},
+type: "get",
+url: "{{route('availability', [$services->id, $services->type->id])}}",
+success: function(data) {
+if (!data || !data.bookedDates || !data.available_slots) {
+initBasicDatepickers();
+return;
+}
+
+// Process booked dates into YYYY-MM-DD format
+const bookedDates = data.bookedDates.flatMap(booking => {
+const dates = [];
+let current = new Date(booking.from);
+const end = new Date(booking.to);
+
+while (current <= end) {
+dates.push(current.toISOString().split('T')[0]);
+current.setDate(current.getDate() + 1);
+}
+return dates;
+});
+
+// Initialize datepickers with availability checking
+$("#from, #to").datepicker({
+dateFormat: 'yy-mm-dd',
+minDate: 0,
+beforeShowDay: function(date) {
+const dateString = $.datepicker.formatDate('yy-mm-dd', date);
+const isBooked = bookedDates.includes(dateString);
+const isPast = date < new Date();
+return [!isPast, isBooked ? 'booked' : ''];
+}
+});
+
+$("#from").on('change', function() {
+startDate = $(this).datepicker('getDate');
+$("#to").datepicker('option', 'minDate', startDate);
+updateTimeSlots(data.available_slots);
+});
+
+$("#to").on('change', function() {
+endDate = $(this).datepicker('getDate');
+$("#from").datepicker('option', 'maxDate', endDate);
+updateTimeSlots(data.available_slots);
+});
+
+// Store original time options
+$('#checkin-time, #checkout-time').data('originalOptions',
+$('#checkin-time').html()
+);
+}
+});
+}
+
+function initBasicDatepickers() {
+$("#from, #to").datepicker({
+dateFormat: 'yy-mm-dd',
+minDate: 0
+});
+
+$("#from").on('change', function() {
+startDate = $(this).datepicker('getDate');
+$("#to").datepicker('option', 'minDate', startDate);
+});
+
+$("#to").on('change', function() {
+endDate = $(this).datepicker('getDate');
+$("#from").datepicker('option', 'maxDate', endDate);
+});
+}
+
+function updateTimeSlots(availableSlots) {
+if (!startDate || !endDate) return;
+
+const checkinTime = $('#checkin-time');
+const checkoutTime = $('#checkout-time');
+
+// Reset to original options
+checkinTime.html(checkinTime.data('originalOptions'));
+checkoutTime.html(checkinTime.data('originalOptions'));
+
+// Filter time slots based on availability
+availableSlots.forEach(slot => {
+const timeRange = `${slot.start} - ${slot.end}`;
+const isAvailable = slot.available;
+
+// Add check-in option
+const checkinOption = $(`<option value="${slot.start}">${timeRange}</option>`);
+if (!isAvailable) {
+checkinOption.prop('disabled', true)
+.css({'color': '#ff6b6b', 'text-decoration': 'line-through'});
+}
+checkinTime.append(checkinOption);
+
+// Add check-out option
+const checkoutOption = $(`<option value="${slot.end}">${timeRange}</option>`);
+if (!isAvailable) {
+checkoutOption.prop('disabled', true)
+.css({'color': '#ff6b6b', 'text-decoration': 'line-through'});
+}
+checkoutTime.append(checkoutOption);
+});
+}
+
+function initBasicDatepickers() {
+    $("#from, #to").datepicker({
+        dateFormat: 'yy-mm-dd',
+        minDate: 0
+    });
+
+    $("#from").on('change', function() {
+        startDate = $(this).datepicker('getDate');
+        $("#to").datepicker('option', 'minDate', startDate);
+    });
+
+    $("#to").on('change', function() {
+        endDate = $(this).datepicker('getDate');
+        $("#from").datepicker('option', 'maxDate', endDate);
+    });
+}
+
+function updateTimeSlots(availableSlots) {
+    if (!startDate || !endDate) return;
+
+    const checkinTime = $('#checkin-time');
+    const checkoutTime = $('#checkout-time');
+
+    // Clear dropdowns and add default options
+    checkinTime.empty().append('<option value="">Select time</option>');
+    checkoutTime.empty().append('<option value="">Select time</option>');
+
+    // Add only available time slots
+    availableSlots
+        .filter(slot => slot.available)
+        .forEach(slot => {
+            checkinTime.append(`<option value="${slot.start}">${slot.start}</option>`);
+            checkoutTime.append(`<option value="${slot.end}">${slot.end}</option>`);
+        });
+}
+
+// Initialize on page load
+$(document).ready(function() {
+    fetchAvailability();
+});
+  </script>

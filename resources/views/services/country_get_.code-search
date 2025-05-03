@@ -1,0 +1,36 @@
+# Query: country::get()
+# Flags: CaseSensitive
+# ContextLines: 1
+
+7 results - 3 files
+
+app\Http\Controllers\AgencyController.php:
+  22      public function index(){
+  23:         $country = country::where('id','=','102')->get()->get();
+  24          $user = agency::all()->count() ;
+
+app\Http\Controllers\RegistraionController.php:
+  20      public function index()
+  21:     {$country = country::where('id','=','102')->get();
+  22          return view('auth.RegistrationForm' ,[ 'country' => $country]);
+
+app\Http\Controllers\ServiceController.php:
+   30     {
+   31:       $country = country::where('id','=','102')->get();
+   32        $servicecount = servicecategory::all()->count();
+
+  190        $type=type::where('agency_id',Session::get('agency_id'))->get()->all();
+  191:       $country = country::where('id','=','102')->get();
+  192        $user = User::where('id', '=', Session::get('loginid'))->first();
+
+  201           $servicecategory = servicecategory::get()->all();
+  202:          $country = country::where('id','=','102')->get()->all();
+  203           return view('services.edit', ['user' => $user, 'details' => $details, 'category' => $servicecategory, 'country' => $country]);
+
+  296     {
+  297:       $country = country::where('id','=','102')->get()->all();
+  298        $user = User::where('id', '=', Session::get('loginid'))->first();
+
+  321     {
+  322:       $country = country::where('id','=','102')->get()->all();
+  323  

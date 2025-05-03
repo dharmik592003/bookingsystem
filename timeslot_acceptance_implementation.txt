@@ -1,0 +1,50 @@
+# Complete Timeslot Acceptance Implementation Guide
+
+1. Database Structure
+---------------------------------
+- Add booking_type enum('hourly','daily','nightly') to services/agencies table
+- Add min_hours, min_days columns for minimum stay requirements
+- Add night_start, night_end time columns for nightly bookings
+- Create blackout_dates table for maintenance periods
+
+2. Backend Implementation
+---------------------------------
+- Create TimeSlotService class with methods:
+  * isSlotAvailable() - checks against bookings/blackouts
+  * validateTimeslot() - enforces min stay rules
+  * calculateDuration() - handles hourly/daily/nightly calculations
+
+- BookingController methods:
+  * checkAvailability() - returns available slots
+  * validateBooking() - checks time constraints
+  * processBooking() - handles the reservation
+
+3. Frontend Components
+---------------------------------
+- Date/Time picker that changes based on booking type:
+  * Hourly: Time grid with 30/60 minute increments
+  * Daily: Calendar view with day selection
+  * Nightly: Special overnight time selector
+
+- Visual indicators for:
+  * Available slots (green)
+  * Booked slots (red)
+  * Minimum stay requirements
+  * Blackout dates
+
+4. Validation Rules
+---------------------------------
+- Prevent time travel (bookings in past)
+- Enforce minimum stay durations
+- Prevent overlapping bookings
+- Validate against operating hours
+- Check blackout dates
+- Verify sufficient notice period
+
+5. Special Cases Handling
+---------------------------------
+- Timezone conversions
+- Daylight saving time adjustments
+- Last-minute availability changes
+- Buffer times between bookings
+- Peak/off-peak pricing

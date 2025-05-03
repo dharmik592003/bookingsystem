@@ -1,0 +1,1807 @@
+@foreach ($services as $service)
+        <div class="me-2">
+        <input type="checkbox" class="form-check-input" name="category_id[]" autocomplete="off"
+          value="{{ $service->id }}">
+        <label for="" class="form-check-label">{{$service->name}}</label>
+
+        </div>
+      @endforeach
+
+
+
+      @extends('layout.layout')
+@section('style')
+  <meta
+    content="We are the key to your luxury lifestyle on Ibiza. From Luxury villa rentas and yacht charters to your personal concierge."
+    name="description">
+  <meta content="LOUX IBIZA | Ibiza Luxury Lifestyle Management" property="og:title">
+  <meta
+    content="We are the key to your luxury lifestyle on Ibiza. From Luxury villa rentas and yacht charters to your personal concierge."
+    property="og:description">
+  <meta content="LOUX IBIZA | Ibiza Luxury Lifestyle Management" property="twitter:title">
+  <meta
+    content="We are the key to your luxury lifestyle on Ibiza. From Luxury villa rentas and yacht charters to your personal concierge."
+    property="twitter:description">
+  <meta property="og:type" content="website">
+  <meta content="summary_large_image" name="twitter:card">
+  <meta content="width=device-width, initial-scale=1" name="viewport">
+  <meta content="89RLXMMq4DyR0qKfRZ6xt2T-lDb9aZlGtGtSq0L25ps" name="google-site-verification">
+  <link href="{{asset('/css/loux-website.webflow.88131bda9.css')}}" rel="stylesheet" type="text/css">
+  <style>
+    @media (min-width:992px) {
+      html.w-mod-js:not(.w-mod-ix) [data-w-id="73ef7c6f-95ad-194c-43ce-c8e0d0b2e778"] {
+        color: rgb(255, 255, 255);
+      }
+
+      html.w-mod-js:not(.w-mod-ix) [data-w-id="901947e3-9f91-e281-ec5c-89b6504c1a3e"] {
+        color: rgb(255, 255, 255);
+      }
+
+      html.w-mod-js:not(.w-mod-ix) [data-w-id="901947e3-9f91-e281-ec5c-89b6504c1a42"] {
+        -webkit-transform: translate3d(0, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0deg) skew(0, 0);
+        -moz-transform: translate3d(0, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0deg) skew(0, 0);
+        -ms-transform: translate3d(0, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0deg) skew(0, 0);
+        transform: translate3d(0, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0deg) skew(0, 0);
+        background-color: rgb(255, 255, 255);
+      }
+
+      html.w-mod-js:not(.w-mod-ix) [data-w-id="901947e3-9f91-e281-ec5c-89b6504c1a43"] {
+        background-color: rgb(255, 255, 255);
+        -webkit-transform: translate3d(0, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0deg) skew(0, 0);
+        -moz-transform: translate3d(0, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0deg) skew(0, 0);
+        -ms-transform: translate3d(0, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0deg) skew(0, 0);
+        transform: translate3d(0, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0deg) skew(0, 0);
+      }
+
+      html.w-mod-js:not(.w-mod-ix) [data-w-id="901947e3-9f91-e281-ec5c-89b6504c1a44"] {
+        display: none;
+        opacity: 0;
+      }
+
+      html.w-mod-js:not(.w-mod-ix) [data-w-id="901947e3-9f91-e281-ec5c-89b6504c1a45"] {
+        opacity: 0;
+      }
+    }
+
+    @media (max-width:991px) and (min-width:768px) {
+      html.w-mod-js:not(.w-mod-ix) [data-w-id="73ef7c6f-95ad-194c-43ce-c8e0d0b2e778"] {
+        color: rgb(255, 255, 255);
+      }
+
+      html.w-mod-js:not(.w-mod-ix) [data-w-id="901947e3-9f91-e281-ec5c-89b6504c1a3e"] {
+        color: rgb(255, 255, 255);
+      }
+
+      html.w-mod-js:not(.w-mod-ix) [data-w-id="901947e3-9f91-e281-ec5c-89b6504c1a42"] {
+        -webkit-transform: translate3d(0, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0deg) skew(0, 0);
+        -moz-transform: translate3d(0, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0deg) skew(0, 0);
+        -ms-transform: translate3d(0, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0deg) skew(0, 0);
+        transform: translate3d(0, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0deg) skew(0, 0);
+        background-color: rgb(255, 255, 255);
+      }
+
+      html.w-mod-js:not(.w-mod-ix) [data-w-id="901947e3-9f91-e281-ec5c-89b6504c1a43"] {
+        background-color: rgb(255, 255, 255);
+        -webkit-transform: translate3d(0, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0deg) skew(0, 0);
+        -moz-transform: translate3d(0, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0deg) skew(0, 0);
+        -ms-transform: translate3d(0, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0deg) skew(0, 0);
+        transform: translate3d(0, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0deg) skew(0, 0);
+      }
+
+      html.w-mod-js:not(.w-mod-ix) [data-w-id="901947e3-9f91-e281-ec5c-89b6504c1a44"] {
+        display: none;
+        opacity: 0;
+      }
+
+      html.w-mod-js:not(.w-mod-ix) [data-w-id="901947e3-9f91-e281-ec5c-89b6504c1a45"] {
+        opacity: 0;
+      }
+    }
+
+    @media (max-width:767px) and (min-width:480px) {
+      html.w-mod-js:not(.w-mod-ix) [data-w-id="73ef7c6f-95ad-194c-43ce-c8e0d0b2e778"] {
+        color: rgb(255, 255, 255);
+      }
+
+      html.w-mod-js:not(.w-mod-ix) [data-w-id="901947e3-9f91-e281-ec5c-89b6504c1a3e"] {
+        color: rgb(255, 255, 255);
+      }
+
+      html.w-mod-js:not(.w-mod-ix) [data-w-id="901947e3-9f91-e281-ec5c-89b6504c1a42"] {
+        -webkit-transform: translate3d(0, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0deg) skew(0, 0);
+        -moz-transform: translate3d(0, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0deg) skew(0, 0);
+        -ms-transform: translate3d(0, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0deg) skew(0, 0);
+        transform: translate3d(0, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0deg) skew(0, 0);
+        background-color: rgb(255, 255, 255);
+      }
+
+      html.w-mod-js:not(.w-mod-ix) [data-w-id="901947e3-9f91-e281-ec5c-89b6504c1a43"] {
+        background-color: rgb(255, 255, 255);
+        -webkit-transform: translate3d(0, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0deg) skew(0, 0);
+        -moz-transform: translate3d(0, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0deg) skew(0, 0);
+        -ms-transform: translate3d(0, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0deg) skew(0, 0);
+        transform: translate3d(0, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0deg) skew(0, 0);
+      }
+
+      html.w-mod-js:not(.w-mod-ix) [data-w-id="901947e3-9f91-e281-ec5c-89b6504c1a44"] {
+        display: none;
+        opacity: 0;
+      }
+
+      html.w-mod-js:not(.w-mod-ix) [data-w-id="901947e3-9f91-e281-ec5c-89b6504c1a45"] {
+        opacity: 0;
+      }
+    }
+
+    @media (max-width:479px) {
+      html.w-mod-js:not(.w-mod-ix) [data-w-id="73ef7c6f-95ad-194c-43ce-c8e0d0b2e778"] {
+        color: rgb(255, 255, 255);
+      }
+
+      html.w-mod-js:not(.w-mod-ix) [data-w-id="901947e3-9f91-e281-ec5c-89b6504c1a3e"] {
+        color: rgb(255, 255, 255);
+      }
+
+      html.w-mod-js:not(.w-mod-ix) [data-w-id="901947e3-9f91-e281-ec5c-89b6504c1a42"] {
+        -webkit-transform: translate3d(0, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0deg) skew(0, 0);
+        -moz-transform: translate3d(0, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0deg) skew(0, 0);
+        -ms-transform: translate3d(0, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0deg) skew(0, 0);
+        transform: translate3d(0, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0deg) skew(0, 0);
+        background-color: rgb(255, 255, 255);
+      }
+
+      html.w-mod-js:not(.w-mod-ix) [data-w-id="901947e3-9f91-e281-ec5c-89b6504c1a43"] {
+        background-color: rgb(255, 255, 255);
+        -webkit-transform: translate3d(0, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0deg) skew(0, 0);
+        -moz-transform: translate3d(0, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0deg) skew(0, 0);
+        -ms-transform: translate3d(0, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0deg) skew(0, 0);
+        transform: translate3d(0, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0deg) skew(0, 0);
+      }
+
+      html.w-mod-js:not(.w-mod-ix) [data-w-id="901947e3-9f91-e281-ec5c-89b6504c1a44"] {
+        display: none;
+        opacity: 0;
+      }
+
+      html.w-mod-js:not(.w-mod-ix) [data-w-id="901947e3-9f91-e281-ec5c-89b6504c1a45"] {
+        opacity: 0;
+      }
+
+      html.w-mod-js:not(.w-mod-ix) [data-w-id="901947e3-9f91-e281-ec5c-89b6504c1a15"] {
+        display: block;
+      }
+
+      html.w-mod-js:not(.w-mod-ix) [data-w-id="901947e3-9f91-e281-ec5c-89b6504c1a16"] {
+        display: none;
+      }
+    }
+  </style>
+  <link href="https://fonts.googleapis.com" rel="preconnect">
+  <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin="anonymous">
+  <script src="js/1.6.26-webfont.js" type="text/javascript"></script>
+  <script
+    type="text/javascript">WebFont.load({ google: { families: ["Syne:regular,500,600,700,800", "Work Sans:regular,500,600,700,800,900"] } });</script>
+  <script
+    type="text/javascript">!function (o, c) { var n = c.documentElement, t = " w-mod-"; n.className += t + "js", ("ontouchstart" in o || o.DocumentTouch && c instanceof DocumentTouch) && (n.className += t + "touch") }(window, document);</script>
+  <link href="{{asset('favicons/661681f6c60839d5881a158b-662f851a7e632ddfef0af67f_Favicon%20png%20(2).png')}}"
+    rel="shortcut icon" type="image/x-icon">
+  <link href="{{asset('favicons/661681f6c60839d5881a158b-662f84f85278598567c8b82b_Favicon%20png%20(1).png')}}"
+    rel="apple-touch-icon">
+  <meta name="google-site-verification" content="PpOonkKg2U-R5QjhTCodAkni_fEWwqaXDxeIh49IrIE">
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-B5L33BY0ZS"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+
+    gtag('config', 'G-B5L33BY0ZS');
+  </script><!-- HEAD -->
+  <script async src="{{asset('js/opened-dropdown@1.3.0-main.js')}}"></script>
+  <script src="{{asset('js/jquery-3.7.0.min.js')}}" integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6b5Ebd07/g="
+    crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="{{asset('css/select2.min.css')}}">
+  <script src="{{asset('https://cdn.jsdelivr.net/npm/flatpickr')}}"></script>
+  <script src="{{asset('js/attributes-formsubmit@1-formsubmit.js')}}"></script>
+  <link rel="stylesheet" type="text/css" href="{{asset('css/splide-core.min.css')}}">
+  <!-- [Webflow Friendly Components by Francesco Castronuovo] Opened Dropdown On Page Load -->
+
+  <style>
+    /* Overide default styles so all slides are visible */
+    .splide__track {
+      overflow: visible;
+    }
+
+    /* Change button style when disabled */
+    .splide button:disabled {
+      opacity: 0.4;
+    }
+
+    .splide__pagination {
+      display: none;
+    }
+
+    .w-input[disabled]:not(.w-input-disabled),
+    .w-select[disabled]:not(.w-input-disabled),
+    .w-input[readonly],
+    .w-select[readonly],
+    fieldset[disabled]:not(.w-input-disabled) .w-input,
+    fieldset[disabled]:not(.w-input-disabled) .w-select {
+      background-color: transparent;
+    }
+  </style>
+
+@endsection
+
+ @section('main')
+  <div class="main_wrapper">
+    <div data-w-id="cc0536d6-77cb-c5a5-8d93-7e39bff0c851" class="scroll-indicator"></div>
+    <div class="section-video">
+      <div class="container">
+        <div class="header_component">
+          <div data-w-id="e896c285-e3fe-3af7-dadd-fa13d01395bb" style="opacity:0" class="icon-wrap">
+            <div class="icon-scroll">
+              <div
+                style="-webkit-transform:translate3d(-50%, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(-50%, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(-50%, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(-50%, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);opacity:1"
+                class="scroll-dot"></div>
+            </div>
+          </div>
+          <div data-w-id="c90954ed-a80d-71e4-e580-9737b445b652" style="opacity:0" class="header-title">
+            <h1 class="h1-text">Ibiza Luxury Lifestyle Management</h1>
+          </div>
+          <div data-w-id="c3a049cc-b1c0-a76c-bdea-5376d79e6c0e" style="opacity:0" class="header-info">
+            <div class="text-p">We are the key to your personalised and &#8232;stress-free luxury lifestyle in Ibiza!
+            </div><a href="#form-lux" class="button w-inline-block">
+              <div class="button-text">Get in touch</div><img
+                src="{{asset('images/661681f6c60839d5881a158b-66182030a413fb8af9559e59_Arrow%201.svg')}}" loading="lazy"
+                alt="">
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="html-embed-20 desc-video w-embed"><video autoplay playsinline loop class="video"
+          style="position:absolute; overflow:hidden; width: 100%; height:100%; object-fit:cover;">
+          <source
+            src="https://dl.dropboxusercontent.com/scl/fi/g63t2fh9i9qbrgm5y39h8/Website_FullHD_Horizontal.MP4?rlkey=i6eo7hmn4wtvw6aq41sboh4jp&amp;st=2had967d&amp;dl=0"
+            type="video/mp4">
+          <source
+            src="https://dl.dropboxusercontent.com/scl/fi/g63t2fh9i9qbrgm5y39h8/Website_FullHD_Horizontal.MP4?rlkey=i6eo7hmn4wtvw6aq41sboh4jp&amp;st=2had967d&amp;dl=0"
+            type="video/webm">
+          Your browser does not support the video tag.
+          </source>
+          </source>
+        </video></div>
+      <div class="html-embed-20 mobile-video w-embed"><video autoplay playsinline loop class="video"
+          style="position:absolute; overflow:hidden; width: 100%; height:100%; object-fit:cover;">
+          <source
+            src="https://dl.dropboxusercontent.com/scl/fi/ehuhpf5aarflf0pta7h17/website-fulld-vertical_MeI6V5cX-online-video-cutter.com-1.mp4?rlkey=4izoh8cjqkec3vkiin9spz07m&amp;st=1wrp6i09&amp;dl=0"
+            type="video/mp4">
+          <source
+            src="https://dl.dropboxusercontent.com/scl/fi/ehuhpf5aarflf0pta7h17/website-fulld-vertical_MeI6V5cX-online-video-cutter.com-1.mp4?rlkey=4izoh8cjqkec3vkiin9spz07m&amp;st=1wrp6i09&amp;dl=0"
+            type="video/webm">
+          Your browser does not support the video tag.
+          </source>
+          </source>
+        </video></div>
+    </div>
+    <div class="section-card">
+      <div class="container container-no">
+        <div class="margin-large">
+          <div class="card_component">
+            <div class="card-grid"><a data-w-id="97af0a6a-3a6e-228f-b751-5574c195ae6b" href="villa-rentals"
+                class="card-item villa w-inline-block">
+                <div class="card_item-info">
+                  <div class="card_item-title">Villa Rentals</div>
+                  <div class="card_item-more">
+                    <div class="syne-small">view more</div><img
+                      src="{{asset('images/661681f6c60839d5881a158b-66182030a413fb8af9559e59_Arrow%201.svg')}}"
+                      loading="lazy" alt="" class="more-icon">
+                  </div>
+                </div>
+              </a><a data-w-id="5d0cc71d-1bdb-1cf5-ba8e-1931c641686f" href="yacht-charter"
+                class="card-item yacht w-inline-block">
+                <div class="card_item-info">
+                  <div class="card_item-title">Yacht Charter</div>
+                  <div class="card_item-more">
+                    <div class="syne-small">VIEW More</div><img
+                      src="{{asset('images/661681f6c60839d5881a158b-66182030a413fb8af9559e59_Arrow%201.svg')}}"
+                      loading="lazy" alt="" class="more-icon">
+                  </div>
+                </div>
+              </a><a data-w-id="40163534-edb9-4a8b-9a26-2192ccb4bba0" href="car-rentals"
+                class="card-item car w-inline-block">
+                <div class="card_item-info">
+                  <div class="card_item-title">Car Rental</div>
+                  <div class="card_item-more">
+                    <div class="syne-small">VIEW &nbsp;More</div><img
+                      src="{{asset('images/661681f6c60839d5881a158b-66182030a413fb8af9559e59_Arrow%201.svg')}}"
+                      loading="lazy" alt="" class="more-icon">
+                  </div>
+                </div>
+              </a><a data-w-id="87667041-5006-9b5e-b34f-28650bf9942a" href="luxury-services"
+                class="card-item luxury w-inline-block">
+                <div class="card_item-info">
+                  <div class="card_item-title">Luxury Services</div>
+                  <div class="card_item-more">
+                    <div class="syne-small">VIEW More</div><img
+                      src="{{asset('images/661681f6c60839d5881a158b-66182030a413fb8af9559e59_Arrow%201.svg')}}"
+                      loading="lazy" alt="" class="more-icon">
+                  </div>
+                </div>
+              </a></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="section-choose">
+      <div class="container">
+        <div class="margin-large">
+          <div class="choose_component">
+            <div class="choose-left-block">
+              <h2 letters-slide-up-hero="" text-split="" class="h2-title">Why choose us?</h2>
+            </div>
+            <div class="choose-right-block">
+              <div data-w-id="722e543b-f34d-1489-2019-e7ac9c6f424e" style="opacity:0" class="choose-item">
+                <div class="choose-header">
+                  <div class="h3-paragraf">Luxury Comfort</div>
+                </div>
+                <div class="choose-paragraf">
+                  <div class="p-text">Our objective is to guarantee your luxury holidays in Ibiza are smooth and
+                    stress-free, allowing you to relax while we take care of the rest.</div>
+                </div>
+              </div>
+              <div goo="fade-up" data-w-id="ad12e6e6-1bfa-924b-e52f-329d951b460d" style="opacity:0" class="choose-item">
+                <div class="choose-header">
+                  <div class="h3-paragraf">Personalised experience</div>
+                </div>
+                <div class="choose-paragraf">
+                  <div class="p-text">We create exclusively tailored experiences for each client, ensuring every detail
+                    is personalised to your desires and preferences.</div>
+                </div>
+              </div>
+              <div goo-duration="" data-w-id="e1a2f5e9-f3b3-54a4-0fdf-84bac5a3f83e" style="opacity:0"
+                class="choose-item">
+                <div class="choose-header">
+                  <div class="h3-paragraf">Exclusive <br>access</div>
+                </div>
+                <div class="choose-paragraf">
+                  <div class="p-text">Unlocking the hidden gems of Ibiza, from VIP tables at renowned clubs and
+                    restaurants to private yacht charters and luxury villa rentals in the most exclusive locations.
+                  </div>
+                </div>
+              </div>
+              <div data-w-id="4f8e74e9-3f2a-ef43-017c-f420b9415e78" style="opacity:0" class="choose-item">
+                <div class="choose-header">
+                  <div class="h3-paragraf">Expert guidance</div>
+                </div>
+                <div class="choose-paragraf">
+                  <div class="p-text">Our intimate knowledge of Ibiza&acute;s luxury scene elevates every moment of your
+                    lifestyle.</div>
+                </div>
+              </div>
+              <div data-w-id="1bcc6686-3698-1e8b-959e-72f55d7d66a2" style="opacity:0" class="choose-item">
+                <div class="choose-header">
+                  <div class="h3-paragraf">Trustworthiness and reliability</div>
+                </div>
+                <div class="choose-paragraf">
+                  <div class="p-text">Your trust is our priority, and our reliability is unmatched. From perfect
+                    planning to flawless execution, we are your Ibiza lifestyle concierge.</div>
+                </div>
+              </div>
+            </div>
+            <div class="choose-dropdown-component">
+              <div data-hover="false" data-delay="500" fc-dropdown="default"
+                data-w-id="102569a6-e9fd-b59c-cceb-193da6e7e085" class="dropdown w-dropdown">
+                <div class="dropdown-toggle w-dropdown-toggle">
+                  <div class="h3-paragraf upper-h3">LUXURY COMFORT</div>
+                  <div class="toggl-btn">
+                    <div
+                      style="-webkit-transform:translate3d(0, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0deg) skew(0, 0);-moz-transform:translate3d(0, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0deg) skew(0, 0);-ms-transform:translate3d(0, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0deg) skew(0, 0);transform:translate3d(0, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0deg) skew(0, 0)"
+                      class="plus-vertical"></div>
+                    <div class="plus-horizontal"></div>
+                  </div>
+                </div>
+                <nav style="height:0px" class="dropdown-list w-dropdown-list">
+                  <div class="p-text">Our objective is to guarantee your journey is smooth and stress-free, allowing you
+                    to relax while we take care of the rest.</div>
+                </nav>
+              </div>
+              <div data-hover="false" data-delay="500" data-w-id="dea2dbc4-f50d-185b-bf4b-b5a61eccb2f6"
+                class="dropdown w-dropdown">
+                <div class="dropdown-toggle w-dropdown-toggle">
+                  <div class="h3-paragraf upper-h3">Personalised experience</div>
+                  <div class="toggl-btn">
+                    <div
+                      style="-webkit-transform:translate3d(0, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0deg) skew(0, 0);-moz-transform:translate3d(0, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0deg) skew(0, 0);-ms-transform:translate3d(0, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0deg) skew(0, 0);transform:translate3d(0, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0deg) skew(0, 0)"
+                      class="plus-vertical"></div>
+                    <div class="plus-horizontal"></div>
+                  </div>
+                </div>
+                <nav style="height:0px" class="dropdown-list w-dropdown-list">
+                  <div class="p-text">We create exclusively tailored experiences for each client, ensuring every detail
+                    is personalised to your desires and preferences.</div>
+                </nav>
+              </div>
+              <div data-hover="false" data-delay="500" data-w-id="73aec7a2-5fd3-68f1-7935-7204fa3f0c15"
+                class="dropdown w-dropdown">
+                <div class="dropdown-toggle w-dropdown-toggle">
+                  <div class="h3-paragraf upper-h3">Exclusive access</div>
+                  <div class="toggl-btn">
+                    <div
+                      style="-webkit-transform:translate3d(0, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0deg) skew(0, 0);-moz-transform:translate3d(0, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0deg) skew(0, 0);-ms-transform:translate3d(0, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0deg) skew(0, 0);transform:translate3d(0, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0deg) skew(0, 0)"
+                      class="plus-vertical"></div>
+                    <div class="plus-horizontal"></div>
+                  </div>
+                </div>
+                <nav style="height:0px" class="dropdown-list w-dropdown-list">
+                  <div class="p-text">Unlocking the hidden gems of Ibiza, from VIP reservations at renowned clubs and
+                    restaurants, to private yacht charters and luxury villa rentals in the most exclusive locations.
+                  </div>
+                </nav>
+              </div>
+              <div data-hover="false" data-delay="500" data-w-id="9e3e687c-3c37-a522-767d-e5a11834e99c"
+                class="dropdown w-dropdown">
+                <div class="dropdown-toggle w-dropdown-toggle">
+                  <div class="h3-paragraf upper-h3">Expert guidance</div>
+                  <div class="toggl-btn">
+                    <div
+                      style="-webkit-transform:translate3d(0, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0deg) skew(0, 0);-moz-transform:translate3d(0, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0deg) skew(0, 0);-ms-transform:translate3d(0, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0deg) skew(0, 0);transform:translate3d(0, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0deg) skew(0, 0)"
+                      class="plus-vertical"></div>
+                    <div class="plus-horizontal"></div>
+                  </div>
+                </div>
+                <nav style="height:0px" class="dropdown-list w-dropdown-list">
+                  <div class="p-text">Our intimate knowledge of Ibiza&acute;s luxury scene elevates every moment of your
+                    lifestyle.</div>
+                </nav>
+              </div>
+              <div data-hover="false" data-delay="500" data-w-id="32f76cb4-0848-6806-1177-365502ea2649"
+                class="dropdown w-dropdown">
+                <div class="dropdown-toggle w-dropdown-toggle">
+                  <div class="h3-paragraf upper-h3">Trustworthiness and reliability</div>
+                  <div class="toggl-btn">
+                    <div
+                      style="-webkit-transform:translate3d(0, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0deg) skew(0, 0);-moz-transform:translate3d(0, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0deg) skew(0, 0);-ms-transform:translate3d(0, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0deg) skew(0, 0);transform:translate3d(0, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0deg) skew(0, 0)"
+                      class="plus-vertical"></div>
+                    <div class="plus-horizontal"></div>
+                  </div>
+                </div>
+                <nav style="height:0px" class="dropdown-list w-dropdown-list">
+                  <div class="p-text">Your trust is our priority, and our reliability is unmatched. From perfect
+                    planning to flawless execution, we turn your vision into reality.</div>
+                </nav>
+              </div>
+            </div>
+          </div>
+          <div class="numbers_component">
+            <div class="numbers-item">
+              <div data-w-id="95baff2b-0ce9-755b-7771-f06aeb82b468" style="opacity:0" class="numbers-item-info">
+                <div class="number-title">150+</div>
+                <div class="number-p">Luxury <br>yachts</div>
+              </div>
+              <div data-w-id="1f10c85c-cd59-99bb-6382-b770c02e1fc5" style="opacity:0" class="numbers-item-info">
+                <div class="number-title">350+</div>
+                <div class="number-p">Luxury <br>villas</div>
+              </div>
+              <div data-w-id="7b78e8d3-b322-31b9-70c1-afef53c74c97" style="opacity:0" class="numbers-item-info">
+                <div class="number-title">6+</div>
+                <div class="number-p">Years of experience</div>
+              </div>
+              <div data-w-id="a543e26b-9c61-0610-9627-77f4227033a8" style="opacity:0"
+                class="numbers-item-info numbers-item-active">
+                <div class="number-title number-white">550+</div>
+                <div class="number-p p-white">Happy <br>clients</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="section-service"><img
+        src="{{asset('images/661681f6c60839d5881a158b-661860842c08281ebee6e93b_Image.png')}}" loading="lazy"
+        sizes="100vw"
+        srcset="https://cdn.prod.website-files.com/661681f6c60839d5881a158b/661860842c08281ebee6e93b_Image-p-500.png 500w, https://cdn.prod.website-files.com/661681f6c60839d5881a158b/661860842c08281ebee6e93b_Image-p-800.png 800w, https://cdn.prod.website-files.com/661681f6c60839d5881a158b/661860842c08281ebee6e93b_Image-p-1080.png 1080w, https://cdn.prod.website-files.com/661681f6c60839d5881a158b/661860842c08281ebee6e93b_Image.png 1440w"
+        alt="" class="image-2">
+      <div class="container">
+        <div class="service_component">
+          <div class="service_component-left">
+            <div class="h2-title title-white">BOOK your personal concierge service in Ibiza</div>
+            <div class="div-block-2">
+              <div class="p-text p-white">Our personal concierge service ensures you can experience the ultimate luxury
+                of Ibiza stress-free. <br><br>From pre-planning your trip to handling every detail, our exclusive
+                concierge team is always available for you.</div>
+              <div class="p-text p-white small-w">Experience an effortless journey and enjoy every moment!</div>
+            </div>
+            <div data-w-id="d8da2181-2be8-a9b1-83a6-7e88c86dc3d9" class="button-serv desct-button-serv">
+              <div class="button-text">Enquire</div><img
+                src="{{asset('images/661681f6c60839d5881a158b-66182030a413fb8af9559e59_Arrow%201.svg')}}" loading="lazy"
+                alt="">
+            </div>
+            <div style="opacity:0" class="modal-wrapper">
+              <div
+                style="-webkit-transform:translate3d(0, 20px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, 20px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, 20px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, 20px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);opacity:0"
+                class="modal-container">
+                <div class="modal-header">
+                  <div class="h3-title h3-upper">ENQUIRE YOUR TAILORED CONCIERGE SERVICE</div>
+                  <div class="p-small-s no-h p-small-p-wi">Kindly fill out the following form so we can send you your
+                    personalised offer.</div>
+                </div>
+                <div class="modal-form">
+                  <div class="form-block-3 w-form">
+                    <form id="email-form" name="email-form" data-name="Email Form" method="get" class="form-2"
+                      data-wf-page-id="661681f6c60839d5881a15a5"
+                      data-wf-element-id="b1020e79-2468-b59c-68bb-75770aa5f821"><input class="text-field-2 w-input"
+                        autocomplete="off" maxlength="256" name="name-3" data-name="Name 3" placeholder="Name"
+                        type="text" id="name-3" required=""><input class="text-field-2 w-input" autocomplete="off"
+                        maxlength="256" name="name-3" data-name="Name 3" placeholder="Surname*" type="text" id="name-3"
+                        required=""><input class="text-field-2 w-input" autocomplete="off" maxlength="256" name="Email"
+                        data-name="Email" placeholder="Email*" type="email" id="Email-3" required="">
+                      <div class="ms-input-wrap"><input class="date-home w-input" maxlength="256" name="Data"
+                          data-name="Data" placeholder="Select Date:" type="text" id="date">
+                        <div class="html-embed-10 w-embed"><svg xmlns="http://www.w3.org/2000/svg" width="20"
+                            height="20" viewbox="0 0 20 20" fill="none">
+                            <path
+                              d="M15.8333 3.33331H4.16667C3.24619 3.33331 2.5 4.07951 2.5 4.99998V16.6666C2.5 17.5871 3.24619 18.3333 4.16667 18.3333H15.8333C16.7538 18.3333 17.5 17.5871 17.5 16.6666V4.99998C17.5 4.07951 16.7538 3.33331 15.8333 3.33331Z"
+                              stroke="#454545" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                            <path d="M13.3334 1.66669V5.00002" stroke="#454545" stroke-width="1.5"
+                              stroke-linecap="round" stroke-linejoin="round"></path>
+                            <path d="M6.66663 1.66669V5.00002" stroke="#454545" stroke-width="1.5"
+                              stroke-linecap="round" stroke-linejoin="round"></path>
+                            <path d="M2.5 8.33331H17.5" stroke="#454545" stroke-width="1.5" stroke-linecap="round"
+                              stroke-linejoin="round"></path>
+                          </svg></div>
+                      </div><input class="text-field-2 w-input" autocomplete="off" maxlength="256" name="name-3"
+                        data-name="Name 3" placeholder="Message" type="text" id="name-3"><input type="submit"
+                        data-wait="" class="submit-button-2 w-button" value="">
+                    </form>
+                    <div class="success-message-2 w-form-done">
+                      <div class="succes-div">
+                        <div class="succes-m-block">
+                          <div class="h3-title h3-upper">Thank you!</div>
+                          <div class="p-small-s no-h black-p">Your email has been sent. We will send you a letter to
+                            your email soon.</div>
+                          <div data-w-id="4079cd5c-52f3-3762-7913-8490db17173f" class="success-close-m w-embed"><svg
+                              xmlns="http://www.w3.org/2000/svg" width="33" height="33" viewbox="0 0 33 33" fill="none">
+                              <rect x="27.0403" y="27.5137" width="31.1508" height="0.677191"
+                                transform="rotate(-135 27.0403 27.5137)" fill="#454545"></rect>
+                              <rect x="5.01343" y="27.5137" width="31.1508" height="0.677191"
+                                transform="rotate(-45 5.01343 27.5137)" fill="#454545"></rect>
+                            </svg></div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="w-form-fail">
+                      <div>Oops! Something went wrong while submitting the form.</div>
+                    </div>
+                  </div>
+                </div>
+                <div data-w-id="fad97789-37ba-bd97-2bcc-a6dca0d83c41" class="modal-close_btn w-embed"><svg
+                    xmlns="http://www.w3.org/2000/svg" width="33" height="33" viewbox="0 0 33 33" fill="none">
+                    <rect x="27.0404" y="27.5135" width="31.1508" height="0.677191"
+                      transform="rotate(-135 27.0404 27.5135)" fill="#454545"></rect>
+                    <rect x="5.01343" y="27.5135" width="31.1508" height="0.677191"
+                      transform="rotate(-45 5.01343 27.5135)" fill="#454545"></rect>
+                  </svg></div>
+              </div>
+            </div>
+          </div>
+          <div goo-stagger="0.1" goo="fade-up" goo-start="top 50%" goo-type="stagger" class="service_component-right">
+            <div id="w-node-_55d4896c-657a-aa9e-ba34-4b48ea2d617f-881a15a5" class="serv_component-item">
+              <div class="sev_item-b"><img
+                  src="{{asset('images/661681f6c60839d5881a158b-6618634043d5ef21ac1e5843_clock.svg')}}" loading="lazy"
+                  alt="" class="serv-item-icon">
+                <div class="title-medium">24/7 <span>availability</span></div>
+              </div>
+            </div>
+            <div class="serv_component-item">
+              <div class="sev_item-b"><img
+                  src="{{asset('images/661681f6c60839d5881a158b-6618634045de1da2bd4b1b31_calendar.svg')}}"
+                  loading="lazy" alt="" class="serv-item-icon">
+                <div class="title-medium">Unlimited reservations and changes</div>
+              </div>
+            </div>
+            <div class="serv_component-item">
+              <div class="sev_item-b"><img
+                  src="{{asset('images/661681f6c60839d5881a158b-661863400e1bf7be6ce5bb43_user.svg')}}" loading="lazy"
+                  alt="" class="serv-item-icon">
+                <div class="title-medium">Personalised itinerary</div>
+              </div>
+            </div>
+            <div class="serv_component-item">
+              <div class="sev_item-b"><img
+                  src="{{asset('images/661681f6c60839d5881a158b-661863400e1bf7be6ce5bb52_smile.svg')}}" loading="lazy"
+                  alt="" class="serv-item-icon">
+                <div class="title-medium">Stress-free and flexible</div>
+              </div>
+            </div>
+            <div id="w-node-eb6df96e-ea6d-c42c-2bf1-ed52c28df4a3-881a15a5"
+              data-w-id="eb6df96e-ea6d-c42c-2bf1-ed52c28df4a3" class="button-serv mobile-button-serv">
+              <div class="button-text">Enquire</div><img
+                src="{{asset('images/661681f6c60839d5881a158b-66182030a413fb8af9559e59_Arrow%201.svg')}}" loading="lazy"
+                alt="">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="section-luxury">
+      <div class="container">
+        <div class="margin-large">
+          <div class="luxury_component">
+            <div class="luxury_header">
+              <div data-w-id="e32f5469-3d24-fe26-a767-d693eaa74a3e" style="opacity:0" class="luxury-title">A selection
+                of our most popular luxury services</div>
+            </div>
+            <div class="luxury_grid">
+              <div id="w-node-_1fef2404-53a2-b421-0fcb-a87ca88b162a-881a15a5"
+                data-w-id="1fef2404-53a2-b421-0fcb-a87ca88b162a" style="opacity:0" class="luxury-item">
+                <div class="luxuty-item-title">Driver service</div><img
+                  src="{{asset('images/661681f6c60839d5881a158b-67169893c38aea6f486feca1_036e9441-f587-439b-abb0-75e1f1080db9.JPG')}}"
+                  loading="lazy" width="Auto" height="Auto" alt=""
+                  srcset="https://cdn.prod.website-files.com/661681f6c60839d5881a158b/67169893c38aea6f486feca1_036e9441-f587-439b-abb0-75e1f1080db9-p-500.jpg 500w, https://cdn.prod.website-files.com/661681f6c60839d5881a158b/67169893c38aea6f486feca1_036e9441-f587-439b-abb0-75e1f1080db9-p-800.jpg 800w, https://cdn.prod.website-files.com/661681f6c60839d5881a158b/67169893c38aea6f486feca1_036e9441-f587-439b-abb0-75e1f1080db9-p-1080.jpg 1080w, https://cdn.prod.website-files.com/661681f6c60839d5881a158b/67169893c38aea6f486feca1_036e9441-f587-439b-abb0-75e1f1080db9.JPG 1600w"
+                  sizes="(max-width: 479px) 90vw, (max-width: 767px) 93vw, (max-width: 991px) 45vw, (max-width: 1279px) 46vw, (max-width: 1439px) 44vw, (max-width: 1919px) 640px, 800px"
+                  class="luxury-item-img">
+              </div>
+              <div data-w-id="cb5486cc-65c5-f99e-d92f-6ad333a3dda4" style="opacity:0" class="luxury-item">
+                <div class="luxuty-item-title">Private Chef</div><img
+                  src="{{asset('images/661681f6c60839d5881a158b-66198aafb384dd7ea5d94042_Private%20Chef.png')}}"
+                  loading="lazy"
+                  sizes="(max-width: 479px) 90vw, (max-width: 767px) 93vw, (max-width: 991px) 45vw, (max-width: 1279px) 46vw, (max-width: 1439px) 44vw, (max-width: 1919px) 640px, 800px"
+                  srcset="https://cdn.prod.website-files.com/661681f6c60839d5881a158b/66198aafb384dd7ea5d94042_Private%20Chef-p-500.png 500w, https://cdn.prod.website-files.com/661681f6c60839d5881a158b/66198aafb384dd7ea5d94042_Private%20Chef.png 640w"
+                  alt="" class="luxury-item-img">
+              </div>
+              <div data-w-id="496c22a0-3cbc-62e1-9d51-13d617c7ce66" style="opacity:0" class="luxury-item">
+                <div class="luxuty-item-title">Night-life bookings</div><img
+                  src="{{asset('images/661681f6c60839d5881a158b-66198aaf486c46cf26d18464_Night-life%20bookings.png')}}"
+                  loading="lazy"
+                  sizes="(max-width: 479px) 90vw, (max-width: 767px) 93vw, (max-width: 991px) 45vw, (max-width: 1279px) 46vw, (max-width: 1439px) 44vw, (max-width: 1919px) 640px, 800px"
+                  srcset="https://cdn.prod.website-files.com/661681f6c60839d5881a158b/66198aaf486c46cf26d18464_Night-life%20bookings-p-500.png 500w, https://cdn.prod.website-files.com/661681f6c60839d5881a158b/66198aaf486c46cf26d18464_Night-life%20bookings.png 640w"
+                  alt="" class="luxury-item-img">
+              </div>
+              <div data-w-id="e72189ba-c728-0362-87f7-51a725f6ff9a" style="opacity:0" class="luxury-item">
+                <div class="luxuty-item-title">Event Management</div><img
+                  src="{{asset('images/661681f6c60839d5881a158b-66198aaf1571c92b3f0acbf6_Event%20Management.png')}}"
+                  loading="lazy"
+                  sizes="(max-width: 479px) 90vw, (max-width: 767px) 93vw, (max-width: 991px) 45vw, (max-width: 1279px) 46vw, (max-width: 1439px) 44vw, (max-width: 1919px) 640px, 800px"
+                  srcset="https://cdn.prod.website-files.com/661681f6c60839d5881a158b/66198aaf1571c92b3f0acbf6_Event%20Management-p-500.png 500w, https://cdn.prod.website-files.com/661681f6c60839d5881a158b/66198aaf1571c92b3f0acbf6_Event%20Management.png 640w"
+                  alt="" class="luxury-item-img">
+              </div>
+            </div><a href="luxury-services" class="button-lux w-inline-block">
+              <div class="button-text">show more</div><img
+                src="{{asset('images/661681f6c60839d5881a158b-66182030a413fb8af9559e59_Arrow%201.svg')}}" loading="lazy"
+                alt="">
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="section-howto">
+      <div class="container container-no">
+        <div class="margin-large">
+          <div class="howto_component">
+            <div class="howto_header">
+              <div class="howto-left">
+                <div class="h2-title h2-size-mob">How to book with us?</div>
+                <div class="h3-paragraf mobile-w">The <span class="span-gold">5 simple steps</span> to your luxury
+                  lifestyle in Ibiza</div>
+              </div>
+            </div>
+            <div class="howto-slider">
+              <div id="splide1" class="splide">
+                <div class="splide__arrows">
+                  <div class="splide__arrow splide__arrow--prev">
+                    <div class="arrow-icon w-embed"><svg xmlns="http://www.w3.org/2000/svg" width="38" height="13"
+                        viewbox="0 0 38 13" fill="none">
+                        <path
+                          d="M0.469669 7.03033C0.176777 6.73744 0.176777 6.26256 0.469669 5.96967L5.24264 1.1967C5.53553 0.903806 6.01041 0.903806 6.3033 1.1967C6.59619 1.48959 6.59619 1.96447 6.3033 2.25736L2.06066 6.5L6.3033 10.7426C6.59619 11.0355 6.59619 11.5104 6.3033 11.8033C6.01041 12.0962 5.53553 12.0962 5.24264 11.8033L0.469669 7.03033ZM38 7.25H1V5.75H38V7.25Z"
+                          fill="currentColor"></path>
+                      </svg></div>
+                    <div class="btn-medium-text">Prew</div>
+                  </div>
+                  <div class="splide__arrow splide__arrow--next">
+                    <div class="btn-medium-text">Next</div>
+                    <div class="arrow-icon w-embed"><svg xmlns="http://www.w3.org/2000/svg" width="38" height="13"
+                        viewbox="0 0 38 13" fill="none">
+                        <path
+                          d="M37.5303 7.03033C37.8232 6.73744 37.8232 6.26256 37.5303 5.96967L32.7574 1.1967C32.4645 0.903806 31.9896 0.903806 31.6967 1.1967C31.4038 1.48959 31.4038 1.96447 31.6967 2.25736L35.9393 6.5L31.6967 10.7426C31.4038 11.0355 31.4038 11.5104 31.6967 11.8033C31.9896 12.0962 32.4645 12.0962 32.7574 11.8033L37.5303 7.03033ZM0 7.25H37V5.75H0V7.25Z"
+                          fill="currentColor"></path>
+                      </svg></div>
+                  </div>
+                </div>
+                <div class="splide__track">
+                  <div class="splide__list">
+                    <div data-w-id="6e533b42-7319-7726-0a08-7c164537e427" style="background-color:rgb(255,255,255)"
+                      class="splide__slide">
+                      <div class="title-number-large">01</div>
+                      <div class="spline-conten">
+                        <div class="h3-title">Get <br>in touch</div>
+                        <div class="p-small-s">Contact us to discuss your preferences, and any specific
+                          requirements.&#8232;</div><a style="opacity:0" href="#" class="spline-get w-inline-block">
+                          <div class="button-text--spline">Get in touch</div>
+                          <div class="html-embed w-embed"><svg xmlns="http://www.w3.org/2000/svg" width="38" height="13"
+                              viewbox="0 0 38 13" fill="none">
+                              <path
+                                d="M37.5303 7.03033C37.8232 6.73744 37.8232 6.26256 37.5303 5.96967L32.7574 1.1967C32.4645 0.903806 31.9896 0.903806 31.6967 1.1967C31.4038 1.48959 31.4038 1.96447 31.6967 2.25736L35.9393 6.5L31.6967 10.7426C31.4038 11.0355 31.4038 11.5104 31.6967 11.8033C31.9896 12.0962 32.4645 12.0962 32.7574 11.8033L37.5303 7.03033ZM0 7.25H37V5.75H0V7.25Z"
+                                fill="#454545"></path>
+                            </svg></div>
+                        </a>
+                      </div>
+                    </div>
+                    <div data-w-id="9bf6c2ad-f135-ff4b-6e17-1c285bf414f7" style="background-color:rgb(255,255,255)"
+                      class="splide__slide">
+                      <div class="title-number-large">02</div>
+                      <div class="spline-conten">
+                        <div class="h3-title">Receive a personalised offer</div>
+                        <div class="p-small-s">Based on our consultation, we&rsquo;ll create a tailored proposal with
+                          exclusive recommendations and options.</div><a style="opacity:0" href="#"
+                          class="spline-get w-inline-block">
+                          <div class="button-text--spline">Get in touch</div>
+                          <div class="html-embed w-embed"><svg xmlns="http://www.w3.org/2000/svg" width="38" height="13"
+                              viewbox="0 0 38 13" fill="none">
+                              <path
+                                d="M37.5303 7.03033C37.8232 6.73744 37.8232 6.26256 37.5303 5.96967L32.7574 1.1967C32.4645 0.903806 31.9896 0.903806 31.6967 1.1967C31.4038 1.48959 31.4038 1.96447 31.6967 2.25736L35.9393 6.5L31.6967 10.7426C31.4038 11.0355 31.4038 11.5104 31.6967 11.8033C31.9896 12.0962 32.4645 12.0962 32.7574 11.8033L37.5303 7.03033ZM0 7.25H37V5.75H0V7.25Z"
+                                fill="#454545"></path>
+                            </svg></div>
+                        </a>
+                      </div>
+                    </div>
+                    <div data-w-id="9d675f2c-39b0-2079-a223-99c0560c6875" style="background-color:rgb(255,255,255)"
+                      class="splide__slide">
+                      <div class="title-number-large">03</div>
+                      <div class="spline-conten">
+                        <div class="h3-title">MAKE A DEPOSIT</div>
+                        <div class="p-small-s">Once you&rsquo;re satisfied with the proposal, confirm your booking by
+                          submitting &#8232;a deposit.</div><a style="opacity:0" href="#"
+                          class="spline-get w-inline-block">
+                          <div class="button-text--spline">Get in touch</div>
+                          <div class="html-embed w-embed"><svg xmlns="http://www.w3.org/2000/svg" width="38" height="13"
+                              viewbox="0 0 38 13" fill="none">
+                              <path
+                                d="M37.5303 7.03033C37.8232 6.73744 37.8232 6.26256 37.5303 5.96967L32.7574 1.1967C32.4645 0.903806 31.9896 0.903806 31.6967 1.1967C31.4038 1.48959 31.4038 1.96447 31.6967 2.25736L35.9393 6.5L31.6967 10.7426C31.4038 11.0355 31.4038 11.5104 31.6967 11.8033C31.9896 12.0962 32.4645 12.0962 32.7574 11.8033L37.5303 7.03033ZM0 7.25H37V5.75H0V7.25Z"
+                                fill="#454545"></path>
+                            </svg></div>
+                        </a>
+                      </div>
+                    </div>
+                    <div data-w-id="4a31285d-9b4f-9a05-34cb-e8d035904c0b" style="background-color:rgb(255,255,255)"
+                      class="splide__slide">
+                      <div class="title-number-large">04</div>
+                      <div class="spline-conten">
+                        <div class="h3-title">Flawless pre-planning</div>
+                        <div class="p-small-s big-h">After confirming your booking, we will pre-plan every detail of
+                          your experience, from modern Ibiza villas and activities to private chauffeur service and
+                          dining reservations.</div><a href="#" class="spline-get spline-up w-inline-block">
+                          <div class="button-text--spline">Get in touch</div>
+                          <div class="html-embed w-embed"><svg xmlns="http://www.w3.org/2000/svg" width="38" height="13"
+                              viewbox="0 0 38 13" fill="none">
+                              <path
+                                d="M37.5303 7.03033C37.8232 6.73744 37.8232 6.26256 37.5303 5.96967L32.7574 1.1967C32.4645 0.903806 31.9896 0.903806 31.6967 1.1967C31.4038 1.48959 31.4038 1.96447 31.6967 2.25736L35.9393 6.5L31.6967 10.7426C31.4038 11.0355 31.4038 11.5104 31.6967 11.8033C31.9896 12.0962 32.4645 12.0962 32.7574 11.8033L37.5303 7.03033ZM0 7.25H37V5.75H0V7.25Z"
+                                fill="#454545"></path>
+                            </svg></div>
+                        </a>
+                      </div>
+                    </div>
+                    <div data-w-id="1ce95e3c-ef33-6535-71e1-e2b1f9e51984" style="background-color:rgb(255,255,255)"
+                      class="splide__slide">
+                      <div class="title-number-large">05</div>
+                      <div class="spline-conten">
+                        <div class="h3-title">Enjoy Stress-Free</div>
+                        <div class="p-small-s">Finally, relax and enjoy your luxury experience, knowing
+                          everything&rsquo;s been taken care of.</div><a style="opacity:0" href="#"
+                          class="spline-get w-inline-block">
+                          <div class="button-text--spline">Get in touch</div>
+                          <div class="html-embed w-embed"><svg xmlns="http://www.w3.org/2000/svg" width="38" height="13"
+                              viewbox="0 0 38 13" fill="none">
+                              <path
+                                d="M37.5303 7.03033C37.8232 6.73744 37.8232 6.26256 37.5303 5.96967L32.7574 1.1967C32.4645 0.903806 31.9896 0.903806 31.6967 1.1967C31.4038 1.48959 31.4038 1.96447 31.6967 2.25736L35.9393 6.5L31.6967 10.7426C31.4038 11.0355 31.4038 11.5104 31.6967 11.8033C31.9896 12.0962 32.4645 12.0962 32.7574 11.8033L37.5303 7.03033ZM0 7.25H37V5.75H0V7.25Z"
+                                fill="#454545"></path>
+                            </svg></div>
+                        </a>
+                      </div>
+                    </div>
+                    <div data-w-id="229741e0-555e-0d1b-17c8-07a3a8ab85b8" style="background-color:rgb(255,255,255)"
+                      class="splide__slide">
+                      <div class="title-number-large">06</div>
+                      <div class="spline-conten">
+                        <div class="h3-title">Book now!</div><a href="#" class="button w-inline-block">
+                          <div class="button-text">Get in touch</div><img
+                            src="images/661681f6c60839d5881a158b-66182030a413fb8af9559e59_Arrow%201.svg" loading="lazy"
+                            alt="">
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="section-form">
+      <div class="form-bg"></div>
+      <div class="form-block">
+        <div id="45" class="container">
+          <div id="form-lux" class="form_component-villa">
+            <div class="form-left-component">
+              <div class="h2-title title-white">Make enquiry</div>
+              <div class="form-t">
+                <div class="p-text p-white">Kindly fill out the following form so we can send you your personalised
+                  offer.</div>
+              </div>
+              <div class="link-block"><a href="tel:+34653354920" class="link-item w-inline-block">
+                  <div class="html-embed-4 w-embed"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18"
+                      viewbox="0 0 18 18" fill="none">
+                      <g clip-path="url(#clip0_1_236)">
+                        <path
+                          d="M16.5 12.6901V14.9401C16.5009 15.1489 16.4581 15.3557 16.3744 15.5471C16.2907 15.7385 16.168 15.9103 16.0141 16.0515C15.8602 16.1927 15.6784 16.3002 15.4806 16.3671C15.2827 16.434 15.073 16.4589 14.865 16.4401C12.5571 16.1893 10.3403 15.4007 8.39251 14.1376C6.58038 12.9861 5.04401 11.4497 3.89251 9.63757C2.62499 7.68098 1.83619 5.45332 1.59001 3.13507C1.57127 2.92767 1.59592 2.71864 1.66239 2.52129C1.72886 2.32394 1.83569 2.14259 1.97609 1.98879C2.11648 1.83499 2.28736 1.7121 2.47785 1.62796C2.66834 1.54382 2.87427 1.50027 3.08251 1.50007H5.33251C5.69649 1.49649 6.04935 1.62538 6.32533 1.86272C6.60131 2.10006 6.78157 2.42966 6.83251 2.79007C6.92748 3.51012 7.1036 4.21712 7.35751 4.89757C7.45842 5.16602 7.48026 5.45776 7.42044 5.73823C7.36062 6.01871 7.22166 6.27616 7.02001 6.48007L6.06751 7.43257C7.13518 9.31023 8.68985 10.8649 10.5675 11.9326L11.52 10.9801C11.7239 10.7784 11.9814 10.6395 12.2619 10.5796C12.5423 10.5198 12.8341 10.5417 13.1025 10.6426C13.783 10.8965 14.49 11.0726 15.21 11.1676C15.5743 11.219 15.9071 11.4025 16.1449 11.6832C16.3828 11.9639 16.5091 12.3223 16.5 12.6901Z"
+                          stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                      </g>
+                      <defs>
+                        <clippath id="clip0_1_236">
+                          <rect width="18" height="18" fill="white"></rect>
+                        </clippath>
+                      </defs>
+                    </svg></div>
+                </a><a href="mailto:requests@louxibiza.com" class="link-item w-inline-block">
+                  <div class="html-embed-2 w-embed"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18"
+                      viewbox="0 0 18 18" fill="none">
+                      <path
+                        d="M3 3H15C15.825 3 16.5 3.675 16.5 4.5V13.5C16.5 14.325 15.825 15 15 15H3C2.175 15 1.5 14.325 1.5 13.5V4.5C1.5 3.675 2.175 3 3 3Z"
+                        stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                      <path d="M16.5 4.5L9 9.75L1.5 4.5" stroke="white" stroke-width="1.5" stroke-linecap="round"
+                        stroke-linejoin="round"></path>
+                    </svg></div>
+                </a><a href="https://api.whatsapp.com/message/ZNOW6PKX4H32J1?autoload=1&amp;app_absent=0"
+                  target="_blank" class="link-item w-inline-block">
+                  <div class="html-embed-3 w-embed"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18"
+                      viewbox="0 0 18 18" fill="none">
+                      <g clip-path="url(#clip0_1_240)">
+                        <path
+                          d="M15.3254 2.61392C13.6344 0.929306 11.385 0.000961305 8.99094 0C6.60223 0 4.34921 0.927521 2.64716 2.61172C0.942078 4.29881 0.00219727 6.54085 0 8.91664V8.91939V8.92104C0.000274658 10.359 0.378067 11.8096 1.0952 13.1337L0.0245819 18L4.94687 16.8804C6.19354 17.5086 7.58455 17.8399 8.9875 17.8404H8.99107C11.3794 17.8404 13.6324 16.9128 15.3347 15.2284C17.0413 13.54 17.9816 11.3008 17.9827 8.92351C17.9834 6.56296 17.0398 4.32216 15.3254 2.61392ZM8.99094 16.4355H8.98778C7.72806 16.435 6.47987 16.1187 5.37836 15.5207L5.14558 15.3943L1.87248 16.1388L2.58344 12.9077L2.44638 12.6714C1.76495 11.4962 1.40488 10.199 1.40488 8.91953C1.40749 4.77809 4.81023 1.40488 8.99066 1.40488C11.0102 1.4057 12.9078 2.18861 14.3339 3.60915C15.7814 5.05165 16.5784 6.93883 16.5777 8.9231C16.576 13.0655 13.1726 16.4355 8.99094 16.4355Z"
+                          fill="white"></path>
+                        <path
+                          d="M6.54445 4.9873H6.15031C6.01312 4.9873 5.79037 5.03867 5.60196 5.2437C5.41341 5.44887 4.88208 5.94476 4.88208 6.95331C4.88208 7.96185 5.61913 8.93634 5.72185 9.07326C5.82471 9.21004 7.14458 11.3458 9.235 12.1674C10.9724 12.8502 11.326 12.7144 11.7029 12.6802C12.08 12.6461 12.9198 12.1844 13.0912 11.7059C13.2626 11.2273 13.2626 10.8169 13.2112 10.7312C13.1597 10.6458 13.0225 10.5946 12.817 10.4921C12.6112 10.3896 11.6032 9.88528 11.4147 9.81676C11.2261 9.74851 11.0891 9.71431 10.9519 9.91962C10.8147 10.1245 10.4108 10.5986 10.2908 10.7354C10.1709 10.8723 10.0509 10.8894 9.84515 10.7869C9.63943 10.684 8.98383 10.4637 8.19817 9.76553C7.58664 9.22212 7.16229 8.52916 7.04227 8.32399C6.92238 8.11896 7.0295 8.008 7.13263 7.90569C7.22505 7.81395 7.34988 7.68843 7.45274 7.56882C7.55547 7.44907 7.58472 7.36365 7.65338 7.22687C7.72191 7.09009 7.68758 6.97034 7.63622 6.86789C7.58472 6.7653 7.19003 5.75168 7.00711 5.34628H7.00725C6.85316 5.00488 6.69098 4.99335 6.54445 4.9873Z"
+                          fill="white"></path>
+                      </g>
+                      <defs>
+                        <clippath id="clip0_1_240">
+                          <rect width="18" height="18" fill="white"></rect>
+                        </clippath>
+                      </defs>
+                    </svg></div>
+                </a></div>
+            </div>
+            <div class="form-right-component-villa">
+              <div id="my-form-id" class="form-block-villa w-form">
+                <form id="my-form-id2" name="wf-form-" data-name="" method="get" fs-formsubmit-element="form"
+                  class="form-villa" data-wf-page-id="661681f6c60839d5881a15a5"
+                  data-wf-element-id="68ba5420-fbc3-5007-e24c-683a5ed9d6f0">
+                  <div class="form-up-block">
+                    <div class="input-type"><input class="text-field label-text w-input" autocomplete="off"
+                        maxlength="256" name="Name" data-name="Name" placeholder="Name*" type="text" id="Name-7"></div>
+                    <div class="input-type"><input class="text-field label-text w-input" autocomplete="off"
+                        maxlength="256" name="Surname" data-name="Surname" placeholder="Surname" type="text"
+                        id="Surname-3" required=""></div>
+                  </div>
+                  <div class="form-up-block">
+                    <div class="input-type"><input class="text-field label-text w-input" autocomplete="off"
+                        maxlength="256" name="Email" data-name="Email" placeholder="Email*" type="text" id="Email-5">
+                    </div>
+                    <div class="ms-input-wrap-villa"><input class="date-villa w-input" maxlength="256" name="Data"
+                        data-name="Data" placeholder="Select Date:" type="text" id="Date-2" required="">
+                      <div class="html-embed-10 w-embed"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"
+                          viewbox="0 0 20 20" fill="none">
+                          <path
+                            d="M15.8333 3.33331H4.16667C3.24619 3.33331 2.5 4.07951 2.5 4.99998V16.6666C2.5 17.5871 3.24619 18.3333 4.16667 18.3333H15.8333C16.7538 18.3333 17.5 17.5871 17.5 16.6666V4.99998C17.5 4.07951 16.7538 3.33331 15.8333 3.33331Z"
+                            stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                          <path d="M13.3334 1.66669V5.00002" stroke="white" stroke-width="1.5" stroke-linecap="round"
+                            stroke-linejoin="round"></path>
+                          <path d="M6.66663 1.66669V5.00002" stroke="white" stroke-width="1.5" stroke-linecap="round"
+                            stroke-linejoin="round"></path>
+                          <path d="M2.5 8.33331H17.5" stroke="white" stroke-width="1.5" stroke-linecap="round"
+                            stroke-linejoin="round"></path>
+                        </svg></div>
+                    </div>
+                  </div>
+                  <div class="form-up-block">
+                    <div class="div-block-81">
+                      <div data-hover="false" data-delay="0" fs-selectcustom-element="dropdown"
+                        data-w-id="68ba5420-fbc3-5007-e24c-683a5ed9d6fe" class="fs-select-1 hidden w-dropdown">
+                        <div class="fs-select_toggle-1 w-dropdown-toggle">
+                          <div class="label-text">Select services*</div>
+                          <div>
+                            <div class="html-embed-13 w-embed"><svg xmlns="http://www.w3.org/2000/svg" width="100%"
+                                height="100%" viewbox="0 0 20 20" fill="none">
+                                <path d="M5 7.5L10 12.5L15 7.5" stroke="white" stroke-width="1.5" stroke-linecap="round"
+                                  stroke-linejoin="round"></path>
+                              </svg></div>
+                          </div>
+                        </div>
+                        <nav class="fs-select_list-1 w-dropdown-list"><select id="select-field-3" name="select-field-3"
+                            data-name="Select Field 3" multiple class="fs-select_field-1 w-select">
+                            <option value="">Select services*</option>
+                            <option value="Personal concierge">Personal concierge</option>
+                            <option value="Reservations">Reservations</option>
+                            <option value="Drivers">Drivers</option>
+                            <option value="Event Management">Event Management</option>
+                            <option value="Private jets">Private jets</option>
+                            <option value="Chefs">Chefs</option>
+                            <option value="Security">Security</option>
+                            <option value="Personal trainer">Personal trainer</option>
+                            <option value="Health &amp; Beauty Service">Health &amp; Beauty Service</option>
+                            <option value="Activities">Activities</option>
+                            <option value="Domestic Staff Service">Domestic Staff Service</option>
+                            <option value="Groceries Service Service">Groceries Service Service</option>
+                            <option value="Private shopper Service">Private shopper Service</option>
+                            <option value="Child Care">Child Care</option>
+                          </select><a href="#" class="fs-select_link-1 w-inline-block"></a></nav>
+                      </div>
+                      <div class="field-wrap"><select id="Multiple-3" name="Multiple" data-name="Multiple" multiple
+                          ms-code-custom-select="select-with-search" data-placeholder="Select services &#9013;"
+                          class="select js-example-tags w-select">
+                          <option value="Personal concierge">Personal concierge</option>
+                          <option value="Reservations">Reservations</option>
+                          <option value="Drivers">Drivers</option>
+                          <option value="Event Management">Event Management</option>
+                          <option value="Private jets">Private jets</option>
+                          <option value="Chefs">Chefs</option>
+                          <option value="Security">Security</option>
+                          <option value="Personal trainer ">Personal trainer </option>
+                          <option value="Health &amp; Beauty Service">Health &amp; Beauty Service</option>
+                          <option value="Activities">Activities</option>
+                          <option value="Domestic Staff Service">Domestic Staff Service</option>
+                          <option value="Groceries Service Service">Groceries Service Service</option>
+                          <option value="Private shopper Service">Private shopper Service</option>
+                          <option value="Child Care">Child Care</option>
+                        </select></div>
+                    </div>
+                  </div>
+                  <div class="area-type-villa"><textarea id="Message-4" name="Message" maxlength="5000"
+                      data-name="Message" placeholder="Message" class="text-ared label-text w-input"></textarea></div>
+                  <div class="field_parent captcha-block-copy">
+                    <div id="captchatext" class="field-label asd">Field Label</div><input
+                      class="field captcha-field w-input" maxlength="256" name="captca-field" data-name="captca-field"
+                      placeholder="" type="text" id="captchainput" required="">
+                  </div><input type="submit" data-wait="SUBMIT" class="contact-submit w-button" value="Submit">
+                  <div class="w-embed">
+                    <style>
+                      textarea {
+                        resize: none;
+                      }
+
+                      select option {
+                        background-color: white;
+                        /* &#1041;&#1110;&#1083;&#1080;&#1081; &#1092;&#1086;&#1085; */
+                        color: black;
+                        /* &#1063;&#1086;&#1088;&#1085;&#1080;&#1081; &#1090;&#1077;&#1082;&#1089;&#1090; */
+                        font-size: 20px;
+                        /* &#1056;&#1086;&#1079;&#1084;&#1110;&#1088; &#1090;&#1077;&#1082;&#1089;&#1090;&#1091; 20px */
+                        font-weight: normal;
+                        display: block;
+                        min-height: 1.2em;
+                        padding: 16px 2px;
+                        /* &#1042;&#1110;&#1076;&#1089;&#1090;&#1091;&#1087;&#1080; &#1087;&#1086; 16px &#1079;&#1074;&#1077;&#1088;&#1093;&#1091; &#1110; &#1079;&#1085;&#1080;&#1079;&#1091;, 2px &#1079;&#1083;&#1110;&#1074;&#1072; &#1110; &#1089;&#1087;&#1088;&#1072;&#1074;&#1072; */
+                        border-radius: 0;
+                        /* &#1042;&#1080;&#1076;&#1072;&#1083;&#1077;&#1085;&#1085;&#1103; &#1088;&#1072;&#1076;&#1110;&#1091;&#1089;&#1091; &#1073;&#1086;&#1088;&#1076;&#1077;&#1088;&#1072; */
+                        white-space: nowrap;
+                      }
+
+                      select option[value] {
+                        padding: 8px 2px 8px 15px;
+                        /* &#1042;&#1110;&#1076;&#1089;&#1090;&#1091;&#1087;&#1080;: &#1074;&#1077;&#1088;&#1093; 8px, &#1087;&#1088;&#1072;&#1074;&#1086; 2px, &#1085;&#1080;&#1079; 8px, &#1083;&#1110;&#1074;&#1086; 15px */
+                      }
+
+                      select option:hover {
+                        color: #454545;
+                        /* &#1047;&#1084;&#1110;&#1085;&#1102;&#1108;&#1084;&#1086; &#1082;&#1086;&#1083;&#1110;&#1088; &#1090;&#1077;&#1082;&#1089;&#1090;&#1091; &#1087;&#1088;&#1080; &#1085;&#1072;&#1074;&#1077;&#1076;&#1077;&#1085;&#1085;&#1110; &#1085;&#1072; #454545 */
+                      }
+
+                      .w-input[disabled]:not(.w-input-disabled),
+                      .w-select[disabled]:not(.w-input-disabled),
+                      .w-input[readonly],
+                      .w-select[readonly],
+                      fieldset[disabled]:not(.w-input-disabled) .w-input,
+                      fieldset[disabled]:not(.w-input-disabled) .w-select {
+                        background-color: transparent;
+                      }
+
+                      .label {
+                        color: var(--white);
+                        font-size: 18px;
+                        font-weight: 400;
+                        line-height: 23.4px;
+                      }
+
+                      .select2-container--default .select2-selection--multiple {
+                        background-color: transparent;
+                        /* &#1041;&#1110;&#1083;&#1080;&#1081; &#1092;&#1086;&#1085; */
+                        margin-bottom: 0;
+                        border-radius: 0;
+                      }
+
+                      .select2-container--default .select2-selection--multiple {
+                        background-color: transparent;
+                        border-bottom: 1px solid white;
+                        border-radius: 0px;
+                        cursor: text;
+                        padding-bottom: 5px;
+                        padding-right: 5px;
+                        position: relative;
+                      }
+
+                      .select2-container--default .select2-selection--multiple {
+                        background-color: transparent;
+                        border-bottom: 1px solid white;
+
+                      }
+
+                      .select2-container--default .select2-selection--multiple {
+                        background-color: transparent;
+                        border-bottom: 1px solid white;
+                        border-top: 1px solid transparent;
+                        border-left: 1px solid transparent;
+                        border-right: 1px solid transparent;
+                        border-radius: 0px;
+                        cursor: text;
+                        padding-bottom: 18px;
+                        padding-right: 5px;
+                        position: relative;
+                        color: white;
+                      }
+
+                      .select2-container--default.select2-container--focus .select2-selection--multiple {
+                        border-bottom: 1px solid white;
+                        border-top: 1px solid transparent;
+                        border-left: 1px solid transparent;
+                        border-right: 1px solid transparent;
+                        outline: 0;
+                      }
+
+                      .select2-results__option--selectable {
+                        cursor: pointer;
+                        font-size: 16px;
+                        font-weight: 500;
+                      }
+
+                      .select2-container--default .select2-results__option--highlighted.select2-results__option--selectable {
+                        background-color: #454545;
+                        color: white;
+                      }
+
+                      .select2-container--default .select2-selection--multiple .select2-selection__choice {
+                        background-color: transparent;
+                        border: 0px solid #aaa;
+                        font-size: 16px;
+                        border-radius: 4px;
+                        box-sizing: border-box;
+                        display: inline-block;
+                        margin-left: 0px;
+                        margin-top: 0px;
+                        padding: 0;
+                        padding-left: 20px;
+                        position: relative;
+                        max-width: 100%;
+                        overflow: hidden;
+                        text-overflow: ellipsis;
+                        vertical-align: bottom;
+                        white-space: nowrap;
+                      }
+
+                      .select2-container--default .select2-selection--multiple .select2-selection__choice__remove {
+                        background-color: transparent;
+                        border: none;
+                        border-right: 0px solid #aaa;
+                        border-top-left-radius: 0px;
+                        border-bottom-left-radius: 0px;
+                        color: white;
+                        cursor: pointer;
+                        font-size: 1.5em;
+                        font-weight: bold;
+                        padding: 0 4px;
+                        position: absolute;
+                        left: 0;
+                        top: -1px;
+                      }
+
+                      .select2-container--default .select2-selection--multiple .select2-selection__choice__remove:hover {
+                        background-color: transparent;
+                        border: none;
+                        border-right: 0px solid #aaa;
+                        border-top-left-radius: 0px;
+                        border-bottom-left-radius: 0px;
+                        color: white;
+                        cursor: pointer;
+                        font-size: 1.5em;
+                        font-weight: bold;
+                        padding: 0 4px;
+                        position: absolute;
+                        left: 0;
+                        top: -1px;
+                      }
+
+                      .select2-container--default .select2-search--inline .select2-search__field {
+                        background: transparent;
+                        border: none;
+                        outline: 0;
+                        box-shadow: none;
+                        -webkit-appearance: textfield;
+                        font-size: 18px;
+
+                      }
+
+                      ::-webkit-input-placeholder {
+                        /* WebKit, Blink, Edge */
+                        color: white;
+                        font-size: 18px;
+                      }
+
+                      .select2-container .select2-search--inline .select2-search__field {
+                        box-sizing: border-box;
+                        border: none;
+                        font-size: 100%;
+                        margin-top: 0px;
+                        margin-left: 0px;
+                        padding: 0;
+                        max-width: 100%;
+                        resize: none;
+                        height: 18px;
+                        vertical-align: bottom;
+                        font-family: sans-serif;
+                        overflow: hidden;
+                        word-break: keep-all;
+                      }
+                    </style>
+                  </div>
+                </form>
+                <div class="success-message w-form-done">
+                  <div class="succes-div">
+                    <div class="succes-m-block suc2">
+                      <div class="h3-title h3-upper">Thank you!</div>
+                      <div class="p-small-s no-h black-p">Your email has been sent. We will send you a letter to your
+                        email soon.</div>
+                      <div fs-formsubmit-element="reset" data-w-id="68ba5420-fbc3-5007-e24c-683a5ed9d718"
+                        class="success-close-m w-embed"><svg xmlns="http://www.w3.org/2000/svg" width="33" height="33"
+                          viewbox="0 0 33 33" fill="none">
+                          <rect x="27.0403" y="27.5137" width="31.1508" height="0.677191"
+                            transform="rotate(-135 27.0403 27.5137)" fill="#454545"></rect>
+                          <rect x="5.01343" y="27.5137" width="31.1508" height="0.677191"
+                            transform="rotate(-45 5.01343 27.5137)" fill="#454545"></rect>
+                        </svg></div>
+                    </div>
+                  </div>
+                </div>
+                <div class="w-form-fail">
+                  <div>Oops! Something went wrong while submitting the form.</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="section-reviews">
+      <div class="green-bg"></div>
+      <div class="container">
+        <div class="margin-large">
+          <div class="reviews_component">
+            <div class="reviews_header">
+              <div class="h2-title">what our clients say</div>
+            </div>
+            <div class="reviews_slider">
+              <div id="splide2" class="splide">
+                <div class="splide__arrows">
+                  <div class="splide__arrow splide__arrow--prev">
+                    <div class="arrow-icon w-embed"><svg xmlns="http://www.w3.org/2000/svg" width="38" height="13"
+                        viewbox="0 0 38 13" fill="none">
+                        <path
+                          d="M0.469669 7.03033C0.176777 6.73744 0.176777 6.26256 0.469669 5.96967L5.24264 1.1967C5.53553 0.903806 6.01041 0.903806 6.3033 1.1967C6.59619 1.48959 6.59619 1.96447 6.3033 2.25736L2.06066 6.5L6.3033 10.7426C6.59619 11.0355 6.59619 11.5104 6.3033 11.8033C6.01041 12.0962 5.53553 12.0962 5.24264 11.8033L0.469669 7.03033ZM38 7.25H1V5.75H38V7.25Z"
+                          fill="currentColor"></path>
+                      </svg></div>
+                    <div class="btn-medium-text">Prew</div>
+                  </div>
+                  <div class="splide__arrow splide__arrow--next">
+                    <div class="btn-medium-text">Next</div>
+                    <div class="arrow-icon w-embed"><svg xmlns="http://www.w3.org/2000/svg" width="38" height="13"
+                        viewbox="0 0 38 13" fill="none">
+                        <path
+                          d="M37.5303 7.03033C37.8232 6.73744 37.8232 6.26256 37.5303 5.96967L32.7574 1.1967C32.4645 0.903806 31.9896 0.903806 31.6967 1.1967C31.4038 1.48959 31.4038 1.96447 31.6967 2.25736L35.9393 6.5L31.6967 10.7426C31.4038 11.0355 31.4038 11.5104 31.6967 11.8033C31.9896 12.0962 32.4645 12.0962 32.7574 11.8033L37.5303 7.03033ZM0 7.25H37V5.75H0V7.25Z"
+                          fill="currentColor"></path>
+                      </svg></div>
+                  </div>
+                </div>
+                <div class="splide__track">
+                  <div class="splide__list">
+                    <div class="splide__slide reviews__slide">
+                      <div class="html-embed-5 w-embed"><svg xmlns="http://www.w3.org/2000/svg" width="100%"
+                          height="100%" viewbox="0 0 50 46" fill="none">
+                          <path
+                            d="M15.1163 0L19.3798 4.23431C17.3127 7.82706 15.5039 11.4198 13.9535 15.0126C12.4031 18.477 11.4987 21.8773 11.2403 25.2134L20.9302 27.3305L20.9302 46H0L0 32.5272C0 24.5718 1.55039 18.1562 4.65116 13.2803C7.88114 8.27615 11.3695 3.84938 15.1163 0ZM44.186 0L48.4496 4.23431C46.3824 7.82706 44.5736 11.4198 43.0233 15.0126C41.4729 18.477 40.5685 21.8773 40.3101 25.2134L50 27.3305V46H29.0698L29.0698 32.5272C29.0698 24.5718 30.6202 18.1562 33.7209 13.2803C36.9509 8.27615 40.4393 3.84938 44.186 0Z"
+                            fill="#CF9E31"></path>
+                        </svg></div>
+                      <div class="spline-conten spline_reviews-content">
+                        <div class="h3-paragraf _3-revie">Amazing service! Definitely recommendable for anyone looking
+                          for a great time in Ibiza. Organized and everything taken care of from start til finish.</div>
+                      </div>
+                      <div class="reviews-star">
+                        <div class="title-medium title-medium-black">Fynn Lueck</div>
+                        <div class="star">
+                          <div class="number-p-medium">4.9</div><img
+                            src="images/661681f6c60839d5881a158b-661c294261ce40d73adf8136_Frame%20599.svg"
+                            loading="lazy" alt="">
+                        </div>
+                      </div>
+                    </div>
+                    <div class="splide__slide reviews__slide">
+                      <div class="html-embed-5 w-embed"><svg xmlns="http://www.w3.org/2000/svg" width="100%"
+                          height="100%" viewbox="0 0 50 46" fill="none">
+                          <path
+                            d="M15.1163 0L19.3798 4.23431C17.3127 7.82706 15.5039 11.4198 13.9535 15.0126C12.4031 18.477 11.4987 21.8773 11.2403 25.2134L20.9302 27.3305L20.9302 46H0L0 32.5272C0 24.5718 1.55039 18.1562 4.65116 13.2803C7.88114 8.27615 11.3695 3.84938 15.1163 0ZM44.186 0L48.4496 4.23431C46.3824 7.82706 44.5736 11.4198 43.0233 15.0126C41.4729 18.477 40.5685 21.8773 40.3101 25.2134L50 27.3305V46H29.0698L29.0698 32.5272C29.0698 24.5718 30.6202 18.1562 33.7209 13.2803C36.9509 8.27615 40.4393 3.84938 44.186 0Z"
+                            fill="#CF9E31"></path>
+                        </svg></div>
+                      <div class="spline-conten spline_reviews-content">
+                        <div class="h3-paragraf _3-revie">I have been visiting Ibiza many times in the past and have
+                          always been impressed by the high quality service provided by Loux Ibiza!</div>
+                      </div>
+                      <div class="reviews-star">
+                        <div class="title-medium title-medium-black">Valle Lehmann</div>
+                        <div class="star">
+                          <div class="number-p-medium">4.0</div><img
+                            src="images/661681f6c60839d5881a158b-661e60469a445d13edd0602b_Frame%20599.svg"
+                            loading="lazy" alt="">
+                        </div>
+                      </div>
+                    </div>
+                    <div class="splide__slide reviews__slide">
+                      <div class="html-embed-5 w-embed"><svg xmlns="http://www.w3.org/2000/svg" width="100%"
+                          height="100%" viewbox="0 0 50 46" fill="none">
+                          <path
+                            d="M15.1163 0L19.3798 4.23431C17.3127 7.82706 15.5039 11.4198 13.9535 15.0126C12.4031 18.477 11.4987 21.8773 11.2403 25.2134L20.9302 27.3305L20.9302 46H0L0 32.5272C0 24.5718 1.55039 18.1562 4.65116 13.2803C7.88114 8.27615 11.3695 3.84938 15.1163 0ZM44.186 0L48.4496 4.23431C46.3824 7.82706 44.5736 11.4198 43.0233 15.0126C41.4729 18.477 40.5685 21.8773 40.3101 25.2134L50 27.3305V46H29.0698L29.0698 32.5272C29.0698 24.5718 30.6202 18.1562 33.7209 13.2803C36.9509 8.27615 40.4393 3.84938 44.186 0Z"
+                            fill="#CF9E31"></path>
+                        </svg></div>
+                      <div class="spline-conten spline_reviews-content">
+                        <div class="h3-paragraf text-auto _3-revie">I had the pleasure of using Loux Ibiza&lsquo;s
+                          service and can only say that I was absolutely impressed from start to finish! The service was
+                          exceptionally professional and attentive, from the initial contact to departure. Louis was
+                          extremely helpful in organizing my trip and ensured that I had the best possible experience in
+                          Ibiza. He arranged fantastic accommodations, recommended the best restaurants and beaches,
+                          organized transportation options, and even excursions. If you are planning a trip to Ibiza, I
+                          can highly recommend Louis. You will be rewarded with exceptional service and an unforgettable
+                          experience.</div>
+                      </div>
+                      <div class="reviews-star">
+                        <div class="title-medium title-medium-black">Fynn Lueck</div>
+                        <div class="star">
+                          <div class="number-p-medium">4.9</div><img
+                            src="images/661681f6c60839d5881a158b-661c294261ce40d73adf8136_Frame%20599.svg"
+                            loading="lazy" alt="">
+                        </div>
+                      </div>
+                    </div>
+                    <div class="splide__slide reviews__slide">
+                      <div class="html-embed-5 w-embed"><svg xmlns="http://www.w3.org/2000/svg" width="100%"
+                          height="100%" viewbox="0 0 50 46" fill="none">
+                          <path
+                            d="M15.1163 0L19.3798 4.23431C17.3127 7.82706 15.5039 11.4198 13.9535 15.0126C12.4031 18.477 11.4987 21.8773 11.2403 25.2134L20.9302 27.3305L20.9302 46H0L0 32.5272C0 24.5718 1.55039 18.1562 4.65116 13.2803C7.88114 8.27615 11.3695 3.84938 15.1163 0ZM44.186 0L48.4496 4.23431C46.3824 7.82706 44.5736 11.4198 43.0233 15.0126C41.4729 18.477 40.5685 21.8773 40.3101 25.2134L50 27.3305V46H29.0698L29.0698 32.5272C29.0698 24.5718 30.6202 18.1562 33.7209 13.2803C36.9509 8.27615 40.4393 3.84938 44.186 0Z"
+                            fill="#CF9E31"></path>
+                        </svg></div>
+                      <div class="spline-conten spline_reviews-content">
+                        <div class="h3-paragraf _3-revie">Amazing service, great villa and everything went smoothly!
+                          They thought of every detail and planned the best vacation we ever had on ibiza.</div>
+                      </div>
+                      <div class="reviews-star">
+                        <div class="title-medium title-medium-black">Kjell Fischer</div>
+                        <div class="star">
+                          <div class="number-p-medium">5.0</div><img
+                            src="images/661681f6c60839d5881a158b-661e6093196bc396a0d71cbe_Frame%20599.svg"
+                            loading="lazy" alt="">
+                        </div>
+                      </div>
+                    </div>
+                    <div class="splide__slide reviews__slide">
+                      <div class="html-embed-5 w-embed"><svg xmlns="http://www.w3.org/2000/svg" width="100%"
+                          height="100%" viewbox="0 0 50 46" fill="none">
+                          <path
+                            d="M15.1163 0L19.3798 4.23431C17.3127 7.82706 15.5039 11.4198 13.9535 15.0126C12.4031 18.477 11.4987 21.8773 11.2403 25.2134L20.9302 27.3305L20.9302 46H0L0 32.5272C0 24.5718 1.55039 18.1562 4.65116 13.2803C7.88114 8.27615 11.3695 3.84938 15.1163 0ZM44.186 0L48.4496 4.23431C46.3824 7.82706 44.5736 11.4198 43.0233 15.0126C41.4729 18.477 40.5685 21.8773 40.3101 25.2134L50 27.3305V46H29.0698L29.0698 32.5272C29.0698 24.5718 30.6202 18.1562 33.7209 13.2803C36.9509 8.27615 40.4393 3.84938 44.186 0Z"
+                            fill="#CF9E31"></path>
+                        </svg></div>
+                      <div class="spline-conten spline_reviews-content">
+                        <div class="h3-paragraf _3-revie">Loux hat sich perfekt um alles gek&uuml;mmert. Freue mich
+                          schon auf den n&auml;chsten Ibiza Trip. &#128076;&#127997;</div>
+                      </div>
+                      <div class="reviews-star">
+                        <div class="title-medium title-medium-black">Alexander Powell</div>
+                        <div class="star">
+                          <div class="number-p-medium">5.0</div><img
+                            src="images/661681f6c60839d5881a158b-661e6093196bc396a0d71cbe_Frame%20599.svg"
+                            loading="lazy" alt="">
+                        </div>
+                      </div>
+                    </div>
+                    <div class="splide__slide reviews__slide">
+                      <div class="html-embed-5 w-embed"><svg xmlns="http://www.w3.org/2000/svg" width="100%"
+                          height="100%" viewbox="0 0 50 46" fill="none">
+                          <path
+                            d="M15.1163 0L19.3798 4.23431C17.3127 7.82706 15.5039 11.4198 13.9535 15.0126C12.4031 18.477 11.4987 21.8773 11.2403 25.2134L20.9302 27.3305L20.9302 46H0L0 32.5272C0 24.5718 1.55039 18.1562 4.65116 13.2803C7.88114 8.27615 11.3695 3.84938 15.1163 0ZM44.186 0L48.4496 4.23431C46.3824 7.82706 44.5736 11.4198 43.0233 15.0126C41.4729 18.477 40.5685 21.8773 40.3101 25.2134L50 27.3305V46H29.0698L29.0698 32.5272C29.0698 24.5718 30.6202 18.1562 33.7209 13.2803C36.9509 8.27615 40.4393 3.84938 44.186 0Z"
+                            fill="#CF9E31"></path>
+                        </svg></div>
+                      <div class="spline-conten spline_reviews-content">
+                        <div class="h3-paragraf _3-revie">Una experiencia espectacular,sin duda estoy muy agradecido.
+                        </div>
+                      </div>
+                      <div class="reviews-star">
+                        <div class="title-medium title-medium-black">Alexander Giesecke</div>
+                        <div class="star">
+                          <div class="number-p-medium">5.0</div><img
+                            src="images/661681f6c60839d5881a158b-661e6093196bc396a0d71cbe_Frame%20599.svg"
+                            loading="lazy" alt="">
+                        </div>
+                      </div>
+                    </div>
+                    <div class="splide__slide reviews__slide">
+                      <div class="html-embed-5 w-embed"><svg xmlns="http://www.w3.org/2000/svg" width="100%"
+                          height="100%" viewbox="0 0 50 46" fill="none">
+                          <path
+                            d="M15.1163 0L19.3798 4.23431C17.3127 7.82706 15.5039 11.4198 13.9535 15.0126C12.4031 18.477 11.4987 21.8773 11.2403 25.2134L20.9302 27.3305L20.9302 46H0L0 32.5272C0 24.5718 1.55039 18.1562 4.65116 13.2803C7.88114 8.27615 11.3695 3.84938 15.1163 0ZM44.186 0L48.4496 4.23431C46.3824 7.82706 44.5736 11.4198 43.0233 15.0126C41.4729 18.477 40.5685 21.8773 40.3101 25.2134L50 27.3305V46H29.0698L29.0698 32.5272C29.0698 24.5718 30.6202 18.1562 33.7209 13.2803C36.9509 8.27615 40.4393 3.84938 44.186 0Z"
+                            fill="#CF9E31"></path>
+                        </svg></div>
+                      <div class="spline-conten spline_reviews-content">
+                        <div class="h3-paragraf _3-revie">Highly recommend Loux Ibiza! Incredible experiences and
+                          everything is taken care of.</div>
+                      </div>
+                      <div class="reviews-star">
+                        <div class="title-medium title-medium-black">Dago Culot</div>
+                        <div class="star">
+                          <div class="number-p-medium">5.0</div><img
+                            src="images/661681f6c60839d5881a158b-661e6093196bc396a0d71cbe_Frame%20599.svg"
+                            loading="lazy" alt="">
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="section-instagram">
+      <div class="container container-no">
+        <div class="margin-large">
+          <div class="inst_component"><a href="https://www.instagram.com/louxibiza" target="_blank"
+              class="inst-item w-inline-block">
+              <div class="inst-info vis">
+                <div class="h4-title">Follow us</div>
+                <div class="open-btn">
+                  <div class="open-text">Open Instagram</div>
+                  <div class="html-embed-6 w-embed"><svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%"
+                      viewbox="0 0 38 13" fill="none">
+                      <path
+                        d="M37.5303 7.03033C37.8232 6.73744 37.8232 6.26256 37.5303 5.96967L32.7574 1.1967C32.4645 0.903806 31.9896 0.903806 31.6967 1.1967C31.4038 1.48959 31.4038 1.96447 31.6967 2.25736L35.9393 6.5L31.6967 10.7426C31.4038 11.0355 31.4038 11.5104 31.6967 11.8033C31.9896 12.0962 32.4645 12.0962 32.7574 11.8033L37.5303 7.03033ZM0 7.25H37V5.75H0V7.25Z"
+                        fill="white"></path>
+                    </svg></div>
+                </div>
+              </div>
+            </a><a href="https://www.instagram.com/louxibiza/?hl=ru" target="_blank"
+              class="inst-item ins w-inline-block">
+              <div class="inst-info">
+                <div class="h4-title">Follow us</div>
+                <div class="open-btn">
+                  <div class="open-text">Open Instagram</div>
+                  <div class="html-embed-6 w-embed"><svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%"
+                      viewbox="0 0 38 13" fill="none">
+                      <path
+                        d="M37.5303 7.03033C37.8232 6.73744 37.8232 6.26256 37.5303 5.96967L32.7574 1.1967C32.4645 0.903806 31.9896 0.903806 31.6967 1.1967C31.4038 1.48959 31.4038 1.96447 31.6967 2.25736L35.9393 6.5L31.6967 10.7426C31.4038 11.0355 31.4038 11.5104 31.6967 11.8033C31.9896 12.0962 32.4645 12.0962 32.7574 11.8033L37.5303 7.03033ZM0 7.25H37V5.75H0V7.25Z"
+                        fill="white"></path>
+                    </svg></div>
+                </div>
+              </div>
+            </a><a href="https://www.instagram.com/louxibiza/?hl=ru" target="_blank"
+              class="inst-item wat w-inline-block">
+              <div class="inst-info">
+                <div class="h4-title">Follow us</div>
+                <div class="open-btn">
+                  <div class="open-text">Open Instagram</div>
+                  <div class="html-embed-6 w-embed"><svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%"
+                      viewbox="0 0 38 13" fill="none">
+                      <path
+                        d="M37.5303 7.03033C37.8232 6.73744 37.8232 6.26256 37.5303 5.96967L32.7574 1.1967C32.4645 0.903806 31.9896 0.903806 31.6967 1.1967C31.4038 1.48959 31.4038 1.96447 31.6967 2.25736L35.9393 6.5L31.6967 10.7426C31.4038 11.0355 31.4038 11.5104 31.6967 11.8033C31.9896 12.0962 32.4645 12.0962 32.7574 11.8033L37.5303 7.03033ZM0 7.25H37V5.75H0V7.25Z"
+                        fill="white"></path>
+                    </svg></div>
+                </div>
+              </div>
+            </a><a href="https://www.instagram.com/louxibiza/?hl=ru" target="_blank"
+              class="inst-item pe w-inline-block">
+              <div class="inst-info">
+                <div class="h4-title">Follow us</div>
+                <div class="open-btn">
+                  <div class="open-text">Open Instagram</div>
+                  <div class="html-embed-6 w-embed"><svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%"
+                      viewbox="0 0 38 13" fill="none">
+                      <path
+                        d="M37.5303 7.03033C37.8232 6.73744 37.8232 6.26256 37.5303 5.96967L32.7574 1.1967C32.4645 0.903806 31.9896 0.903806 31.6967 1.1967C31.4038 1.48959 31.4038 1.96447 31.6967 2.25736L35.9393 6.5L31.6967 10.7426C31.4038 11.0355 31.4038 11.5104 31.6967 11.8033C31.9896 12.0962 32.4645 12.0962 32.7574 11.8033L37.5303 7.03033ZM0 7.25H37V5.75H0V7.25Z"
+                        fill="white"></path>
+                    </svg></div>
+                </div>
+              </div>
+            </a></div>
+        </div>
+      </div>
+    </div>
+    <div class="section-footer">
+      <div class="container">
+        <div class="margin-medium">
+          <div class="footer_component">
+            <div class="footer-up-component"><a id="w-node-d10716dd-0aab-b7c5-d0dc-785b0eb9727c-0eb97277" href="#"
+                class="footer-logo w-inline-block"><img
+                  src="images/661681f6c60839d5881a158b-661cc1fe8b5bdd7f3393b8ab_Logo%20Ibiza.svg" loading="lazy"
+                  alt=""></a>
+              <div class="footer-center">
+                <div class="footer-link-block">
+                  <div class="footer-link-head">
+                    <div class="title-small">Book</div>
+                  </div>
+                  <div class="footer-link-content"><a href="villa-rentals" class="link-large">Villa Rentals</a><a
+                      href="yacht-charter" class="link-large">Yacht Charter</a><a href="car-rentals"
+                      class="link-large">Car Rentals</a><a href="luxury-services" class="link-large">LUXURY
+                      SERVICES</a></div>
+                </div>
+                <div class="footer-link-block">
+                  <div class="footer-link-head">
+                    <div class="title-small">Links</div>
+                  </div>
+                  <div class="footer-link-content"><a href="/" aria-current="page"
+                      class="link-large w--current">Homepage</a><a href="about-us" class="link-large">WHO ARE
+                      WE?</a><a href="privacy-policy" class="link-large">PRIVACY POLICY</a></div>
+                </div>
+              </div>
+              <div id="w-node-d10716dd-0aab-b7c5-d0dc-785b0eb97295-0eb97277" class="footer-right">
+                <div class="div-block-4">
+                  <div class="div-block-3">
+                    <div class="title-small">We&rsquo;d love to hear from you!</div>
+                  </div>
+                  <div class="form-block-2 w-form">
+                    <form id="wf-form-" name="wf-form-" data-name="" method="get" fs-formsubmit-element="form"
+                      class="form" data-wf-page-id="661681f6c60839d5881a15a5"
+                      data-wf-element-id="d10716dd-0aab-b7c5-d0dc-785b0eb9729b">
+                      <div class="form-up-block">
+                        <div class="input-type input-footer"><input class="text-field label-text footer-text-l w-input"
+                            autocomplete="off" maxlength="256" name="Name" data-name="Name" placeholder="Name*"
+                            type="text" id="Name-6"></div>
+                        <div class="input-type"><input class="text-field label-text footer-text-l w-input"
+                            autocomplete="off" maxlength="256" name="Email" data-name="Email" placeholder="Email*"
+                            type="email" id="Email-6" required=""></div>
+                      </div>
+                      <div class="area-type"><textarea id="Message-5" name="Message" maxlength="5000"
+                          data-name="Message" placeholder="Message"
+                          class="text-ared label-text footer-labl w-input"></textarea></div>
+                      <div data-w-id="d10716dd-0aab-b7c5-d0dc-785b0eb972a3" class="div-block-78"><input type="submit"
+                          data-wait="Please wait..." class="contact-submit submit-footer w-button" value="Submit">
+                        <div class="icon-btn w-embed"><svg xmlns="http://www.w3.org/2000/svg" width="38" height="13"
+                            viewbox="0 0 38 13" fill="none">
+                            <path
+                              d="M37.5303 7.03033C37.8232 6.73744 37.8232 6.26256 37.5303 5.96967L32.7574 1.1967C32.4645 0.903806 31.9896 0.903806 31.6967 1.1967C31.4038 1.48959 31.4038 1.96447 31.6967 2.25736L35.9393 6.5L31.6967 10.7426C31.4038 11.0355 31.4038 11.5104 31.6967 11.8033C31.9896 12.0962 32.4645 12.0962 32.7574 11.8033L37.5303 7.03033ZM0 7.25H37V5.75H0V7.25Z"
+                              fill="currentColor"></path>
+                          </svg></div>
+                      </div>
+                      <div class="w-embed">
+                        <style>
+                          textarea {
+                            resize: none;
+                          }
+                        </style>
+                      </div>
+                    </form>
+                    <div class="w-form-done">
+                      <div>Thank you! Your submission has been received!</div>
+                    </div>
+                    <div class="w-form-fail">
+                      <div>Oops! Something went wrong while submitting the form.</div>
+                    </div>
+                  </div>
+                </div>
+                <div class="footer-info">
+                  <div class="footer-info-link"><a href="tel:+34653354920" class="footer-link-com w-inline-block">
+                      <div class="html-embed-7 w-embed"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="19"
+                          viewbox="0 0 18 19" fill="none">
+                          <path
+                            d="M16.4999 13.1901V15.4401C16.5008 15.6489 16.458 15.8557 16.3743 16.0471C16.2907 16.2385 16.1679 16.4103 16.014 16.5515C15.8601 16.6927 15.6784 16.8002 15.4805 16.8671C15.2826 16.934 15.073 16.9589 14.8649 16.9401C12.5571 16.6893 10.3402 15.9007 8.39245 14.6376C6.58032 13.4861 5.04395 11.9497 3.89245 10.1376C2.62493 8.18098 1.83613 5.95332 1.58995 3.63507C1.57121 3.42767 1.59586 3.21864 1.66233 3.02129C1.72879 2.82394 1.83563 2.64259 1.97602 2.48879C2.11642 2.33499 2.2873 2.2121 2.47779 2.12796C2.66828 2.04382 2.87421 2.00027 3.08245 2.00007H5.33245C5.69643 1.99649 6.04929 2.12538 6.32527 2.36272C6.60125 2.60006 6.78151 2.92966 6.83245 3.29007C6.92742 4.01012 7.10354 4.71712 7.35745 5.39757C7.45836 5.66602 7.4802 5.95776 7.42038 6.23823C7.36056 6.51871 7.2216 6.77616 7.01995 6.98007L6.06745 7.93257C7.13512 9.81023 8.68979 11.3649 10.5675 12.4326L11.5199 11.4801C11.7239 11.2784 11.9813 11.1395 12.2618 11.0796C12.5423 11.0198 12.834 11.0417 13.1024 11.1426C13.7829 11.3965 14.4899 11.5726 15.21 11.6676C15.5743 11.719 15.907 11.9025 16.1448 12.1832C16.3827 12.4639 16.5091 12.8223 16.4999 13.1901Z"
+                            stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                          </path>
+                        </svg></div>
+                      <div class="phone-text">+34 653 354 920</div>
+                    </a><a href="mailto:requests@louxibiza.com" class="footer-link-com w-inline-block">
+                      <div class="html-embed-7 w-embed"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="19"
+                          viewbox="0 0 18 19" fill="none">
+                          <path
+                            d="M3 3.5H15C15.825 3.5 16.5 4.175 16.5 5V14C16.5 14.825 15.825 15.5 15 15.5H3C2.175 15.5 1.5 14.825 1.5 14V5C1.5 4.175 2.175 3.5 3 3.5Z"
+                            stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                          </path>
+                          <path d="M16.5 5L9 10.25L1.5 5" stroke="currentColor" stroke-width="1.5"
+                            stroke-linecap="round" stroke-linejoin="round"></path>
+                        </svg></div>
+                      <div class="links-medium">requests@louxibiza.com</div>
+                    </a></div>
+                  <div class="footer-info-link"><a
+                      href="https://api.whatsapp.com/message/ZNOW6PKX4H32J1?autoload=1&amp;app_absent=0" target="_blank"
+                      class="footer-link-com w-inline-block">
+                      <div class="html-embed-7 w-embed"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="19"
+                          viewbox="0 0 18 19" fill="none">
+                          <g clip-path="url(#clip0_1_139)">
+                            <path
+                              d="M15.3254 3.11392C13.6344 1.42931 11.385 0.500961 8.99094 0.5C6.60223 0.5 4.34921 1.42752 2.64716 3.11172C0.942078 4.79881 0.00219727 7.04085 0 9.41664V9.41939V9.42104C0.000274658 10.859 0.378067 12.3096 1.0952 13.6337L0.0245819 18.5L4.94687 17.3804C6.19354 18.0086 7.58455 18.3399 8.9875 18.3404H8.99107C11.3794 18.3404 13.6324 17.4128 15.3347 15.7284C17.0413 14.04 17.9816 11.8008 17.9827 9.42351C17.9834 7.06296 17.0398 4.82216 15.3254 3.11392ZM8.99094 16.9355H8.98778C7.72806 16.935 6.47987 16.6187 5.37836 16.0207L5.14558 15.8943L1.87248 16.6388L2.58344 13.4077L2.44638 13.1714C1.76495 11.9962 1.40488 10.699 1.40488 9.41953C1.40749 5.27809 4.81023 1.90488 8.99066 1.90488C11.0102 1.9057 12.9078 2.68861 14.3339 4.10915C15.7814 5.55165 16.5784 7.43883 16.5777 9.4231C16.576 13.5655 13.1726 16.9355 8.99094 16.9355Z"
+                              fill="currentColor"></path>
+                            <path
+                              d="M6.54445 5.4873H6.15031C6.01312 5.4873 5.79037 5.53867 5.60196 5.7437C5.41341 5.94887 4.88208 6.44476 4.88208 7.45331C4.88208 8.46185 5.61913 9.43634 5.72185 9.57326C5.82471 9.71004 7.14458 11.8458 9.235 12.6674C10.9724 13.3502 11.326 13.2144 11.7029 13.1802C12.08 13.1461 12.9198 12.6844 13.0912 12.2059C13.2626 11.7273 13.2626 11.3169 13.2112 11.2312C13.1597 11.1458 13.0225 11.0946 12.817 10.9921C12.6112 10.8896 11.6032 10.3853 11.4147 10.3168C11.2261 10.2485 11.0891 10.2143 10.9519 10.4196C10.8147 10.6245 10.4108 11.0986 10.2908 11.2354C10.1709 11.3723 10.0509 11.3894 9.84515 11.2869C9.63943 11.184 8.98383 10.9637 8.19817 10.2655C7.58664 9.72212 7.16229 9.02916 7.04227 8.82399C6.92238 8.61896 7.0295 8.508 7.13263 8.40569C7.22505 8.31395 7.34988 8.18843 7.45274 8.06882C7.55547 7.94907 7.58472 7.86365 7.65338 7.72687C7.72191 7.59009 7.68758 7.47034 7.63622 7.36789C7.58472 7.2653 7.19003 6.25168 7.00711 5.84628H7.00725C6.85316 5.50488 6.69098 5.49335 6.54445 5.4873Z"
+                              fill="currentColor"></path>
+                          </g>
+                          <defs>
+                            <clippath id="clip0_1_139">
+                              <rect width="18" height="18" fill="white" transform="translate(0 0.5)"></rect>
+                            </clippath>
+                          </defs>
+                        </svg></div>
+                      <div class="links-medium">WhatsApp</div>
+                    </a><a href="https://www.instagram.com/louxibiza/?hl=ru" target="_blank"
+                      class="footer-link-com w-inline-block">
+                      <div class="html-embed-7 w-embed"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="19"
+                          viewbox="0 0 18 19" fill="none">
+                          <path
+                            d="M12.75 2H5.25C3.17893 2 1.5 3.67893 1.5 5.75V13.25C1.5 15.3211 3.17893 17 5.25 17H12.75C14.8211 17 16.5 15.3211 16.5 13.25V5.75C16.5 3.67893 14.8211 2 12.75 2Z"
+                            stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                          </path>
+                          <path
+                            d="M12 9.02773C12.0926 9.65191 11.986 10.2894 11.6953 10.8495C11.4047 11.4096 10.9449 11.8638 10.3812 12.1475C9.8176 12.4312 9.17886 12.5299 8.55586 12.4297C7.93287 12.3294 7.35734 12.0353 6.91115 11.5891C6.46496 11.1429 6.17082 10.5674 6.07058 9.94439C5.97033 9.32139 6.06907 8.68265 6.35277 8.11901C6.63647 7.55537 7.09066 7.09553 7.65076 6.80491C8.21086 6.51428 8.84834 6.40767 9.47252 6.50023C10.1092 6.59464 10.6987 6.89132 11.1538 7.34646C11.6089 7.80159 11.9056 8.39103 12 9.02773Z"
+                            stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                          </path>
+                          <path d="M13.125 5.375H13.1325" stroke="currentColor" stroke-width="1.5"
+                            stroke-linecap="round" stroke-linejoin="round"></path>
+                        </svg></div>
+                      <div class="links-medium">Instagram</div>
+                    </a></div>
+                </div>
+              </div>
+            </div>
+            <div class="footer-dowm-component">
+              <div class="div-block-80">
+                <div class="p-small-s no-h">&copy; 2024 - LOUX IBIZA. All rights reserved.</div>
+              </div><a href="https://zipl.pro/" target="_blank" class="company-link w-inline-block">
+                <div class="p-small-s no-h">Made by ZIPL</div>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  @endsection
+  @section('script')
+  <script src="{{asset('js/js-jquery-3.5.1.min.dc5e7f18c8.js')}}" type="text/javascript"
+    integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+  <script src="{{asset('js/js-webflow.4bbd219a.ad537dcdd85f9772.js')}}" type="text/javascript"></script>
+  <meta name="google-site-verification" content="PpOonkKg2U-R5QjhTCodAkni_fEWwqaXDxeIh49IrIE"><!-- BODY -->
+  <script src="{{asset('js/js-select2.min.js')}}"></script>
+  <script>
+    $(document).ready(function () {
+      $('[ms-code-custom-select="select-with-search"]').select2();
+    });
+  </script>
+
+  <script>
+    $(document).ready(function () {
+      function prefillSelect2() {
+        var prefilledText = $('#field').val();
+        if (prefilledText) {
+          var valuesArray = prefilledText.split(',').map(value => value.trim());
+          var select2Element = $('select[ms-code-custom-select="select-with-search"]');
+          select2Element.val(valuesArray).trigger('change.select2');
+        }
+      }
+      prefillSelect2();
+    });
+  </script>
+
+  <script>
+    Webflow.push(function () {
+      $('.menu-button').click(function (e) {
+        e.preventDefault();
+        if ($('.menu-button').hasClass('w--open')) {
+          $('body').css('overflow', 'auto');
+        } else {
+          $('body').css('overflow', 'hidden');
+        }
+      });
+    });
+  </script>
+
+  <script>
+    Webflow.push(function () {
+      $('.Button-serv, .desct-button-serv').click(function (e) {
+        e.preventDefault();
+        $('body').css('overflow', 'hidden');
+      });
+      $('.modal-close_btn').click(function (e) {
+        e.preventDefault();
+        $('body').css('overflow', 'auto');
+      });
+    });
+  </script>
+
+  <script src="{{asset('js/js-splide.min.js')}}"></script>
+  <script>
+    new Splide('#splide1', {
+      perPage: 3,
+      perMove: 1,
+      focus: 0,
+      type: 'slide',
+      gap: '20px',
+      arrows: 'slider',
+      pagination: 'slider',
+      speed: 900,
+      dragAngleThreshold: 30,
+      autoWidth: false,
+      rewind: false,
+      rewindSpeed: 300,
+      waitForTransition: false,
+      updateOnMove: true,
+      trimSpace: true,
+      breakpoints: {
+        991: {
+          perPage: 2,
+          gap: '50px',
+        },
+        767: {
+          perPage: 1,
+          gap: '10px',
+        },
+        479: {
+          perPage: 1,
+          gap: '10px',
+        }
+      }
+    }).mount();
+
+    new Splide('#splide2', {
+      perPage: 2,
+      perMove: 1,
+      focus: 0,
+      type: 'slide',
+      gap: '350px',
+      arrows: 'slider',
+      pagination: 'slider',
+      speed: 600,
+      dragAngleThreshold: 30,
+      autoWidth: false,
+      rewind: false,
+      rewindSpeed: 400,
+      waitForTransition: false,
+      updateOnMove: true,
+      trimSpace: true,
+      breakpoints: {
+        991: {
+          perPage: 2,
+          gap: '20px',
+        },
+        767: {
+          perPage: 1,
+          gap: '20px',
+        },
+        479: {
+          perPage: 1,
+          gap: '20px',
+        }
+      }
+    }).mount();
+  </script>
+
+  <script src="{{asset('js/3.12.5-gsap.min.js')}}"></script>
+  <script src="{{asset('js/3.12.5-ScrollTrigger.min.js')}}"></script>
+  <script src="{{asset('js/dist-goo.bundle.js')}}"></script>
+
+  <script>
+    $(function () {
+      $('#my-form-id2').ebcaptcha();
+    });
+
+    (function ($) {
+      jQuery.fn.ebcaptcha = function (options) {
+        var element = this;
+        var input = this.find('#captchainput');
+        var label = this.find('#captchatext');
+        $(element).find('input[type=submit]').attr('disabled', 'disabled');
+
+        var randomNr1 = Math.floor(Math.random() * 10);
+        var randomNr2 = Math.floor(Math.random() * 10);
+        var totalNr = randomNr1 + randomNr2;
+        var texti = "What is " + randomNr1 + " + " + randomNr2;
+        $(label).text(texti);
+
+        $(input).keyup(function () {
+          var nr = $(this).val();
+          if (nr == totalNr) {
+            $(element).find('input[type=submit]').removeAttr('disabled');
+          }
+          else {
+            $(element).find('input[type=submit]').attr('disabled', 'disabled');
+          }
+        });
+
+        $(document).keypress(function (e) {
+          if (e.which == 13) {
+            if ((element).find('input[type=submit]').is(':disabled') == true) {
+              e.preventDefault();
+              return false;
+            }
+          }
+        });
+      };
+    })(jQuery);
+  </script>
+
+
+
+
+
+  <script src="j{{asset('s/3.7.2-plyr.js')}}"></script>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      // &#1054;&#1095;&#1080;&#1097;&#1077;&#1085;&#1085;&#1103; &#1083;&#1086;&#1082;&#1072;&#1083;&#1100;&#1085;&#1086;&#1075;&#1086; &#1089;&#1093;&#1086;&#1074;&#1080;&#1097;&#1072; Plyr
+      localStorage.removeItem('plyr');
+
+      const video = document.querySelector('.video');
+      const player = new Plyr(video, {
+        muted: true, // &#1079;&#1072;&#1074;&#1078;&#1076;&#1080; &#1087;&#1086;&#1095;&#1080;&#1085;&#1072;&#1090;&#1080; &#1079; &#1074;&#1080;&#1084;&#1082;&#1085;&#1077;&#1085;&#1080;&#1084; &#1079;&#1074;&#1091;&#1082;&#1086;&#1084;
+        autoplay: true,
+        controls: [],
+        clickToPlay: false,
+        fullscreen: { enabled: false }
+      });
+
+      const volumeButton = document.querySelector('.volm-i-mute');
+      const muteButton = document.querySelector('.volm-i');
+
+      function updateButtons() {
+        if (player.muted) {
+          volumeButton.style.display = 'inline-block';
+          muteButton.style.display = 'none';
+        } else {
+          volumeButton.style.display = 'none';
+          muteButton.style.display = 'inline-block';
+        }
+      }
+
+      updateButtons(); // &#1054;&#1085;&#1086;&#1074;&#1083;&#1102;&#1108;&#1084;&#1086; &#1082;&#1085;&#1086;&#1087;&#1082;&#1080; &#1087;&#1088;&#1080; &#1079;&#1072;&#1074;&#1072;&#1085;&#1090;&#1072;&#1078;&#1077;&#1085;&#1085;&#1110; &#1089;&#1090;&#1086;&#1088;&#1110;&#1085;&#1082;&#1080;
+
+      player.on('volumechange', updateButtons); // &#1054;&#1085;&#1086;&#1074;&#1083;&#1102;&#1108;&#1084;&#1086; &#1082;&#1085;&#1086;&#1087;&#1082;&#1080; &#1087;&#1088;&#1080; &#1079;&#1084;&#1110;&#1085;&#1110; &#1079;&#1074;&#1091;&#1082;&#1091;
+
+      volumeButton.addEventListener('click', () => {
+        player.muted = false; // &#1059;&#1074;&#1110;&#1084;&#1082;&#1085;&#1091;&#1090;&#1080; &#1079;&#1074;&#1091;&#1082;
+        updateButtons(); // &#1054;&#1085;&#1086;&#1074;&#1080;&#1090;&#1080; &#1082;&#1085;&#1086;&#1087;&#1082;&#1080; &#1087;&#1110;&#1089;&#1083;&#1103; &#1079;&#1084;&#1110;&#1085;&#1080; &#1079;&#1074;&#1091;&#1082;&#1091;
+      });
+
+      muteButton.addEventListener('click', () => {
+        player.muted = true; // &#1042;&#1080;&#1084;&#1082;&#1085;&#1091;&#1090;&#1080; &#1079;&#1074;&#1091;&#1082;
+        updateButtons(); // &#1054;&#1085;&#1086;&#1074;&#1080;&#1090;&#1080; &#1082;&#1085;&#1086;&#1087;&#1082;&#1080; &#1087;&#1110;&#1089;&#1083;&#1103; &#1079;&#1084;&#1110;&#1085;&#1080; &#1079;&#1074;&#1091;&#1082;&#1091;
+      });
+    });
+  </script>
+
+
+
+  <script>
+    $('.count').each(function () {
+      $(this).prop('Counter', 0).animate({
+        Counter: parseInt($(this).text().replace('%', ''))
+      }, {
+        duration: 2000,
+        easing: 'linear',
+        step: function (now) {
+          $(this).text(Math.ceil(now) + '%');
+        }
+      });
+    });
+  </script>
+@endsection

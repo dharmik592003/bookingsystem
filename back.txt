@@ -1,0 +1,222 @@
+@extends('layout.layout')
+    @section('title', 'Dashboard')
+    @section('main')
+
+
+<body class="bg-white text-gray-800"> <!-- Header -->
+    <section class="container mx-auto px-4 py-16 text-center">
+        <div class="flex flex-col md:flex-row items-center">
+            <div class="md:w-1/2">
+                <h1 class="text-5xl font-bold leading-tight">Elevate Your</h1>
+                <p class="mt-4 text-lg">Indulge in Extraordinary Experiences - Explore Our Exquisite Collection of
+                    Luxury Vehicles</p> <a class="mt-6 inline-block bg-black text-white px-6 py-3 rounded" href="{{ route('services') }}">Explore now</a>
+            </div>
+            <div class="md:w-1/2 mt-8 md:mt-0"> <img alt="Luxury car with scenic background" height="400"
+                    src="https://storage.googleapis.com/a1aa/image/rmEsNr-WwV7dA8xaQ9XQR7ifDTMoyYSG5VOfO1Z44-E.jpg"
+                    width="600" /> </div>
+        </div>
+    </section> <!-- Luxury Rentals Section -->
+    <section class="bg-gray-100 py-16">
+        <div class="container mx-auto px-4">
+            <div class="flex justify-between items-center mb-8">
+                <h2 class="text-3xl font-bold">Luxury Rentals</h2> <a class="text-gray-600 hover:text-gray-900"
+                    href="#">Discover More</a>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="bg-white shadow-md rounded-lg overflow-hidden"> <img alt="Red luxury car" height="300"
+                        src="https://storage.googleapis.com/a1aa/image/RWM202FpEaPF4DqoXoGiYOsZdc7W7nKJutXOUKUqvUk.jpg"
+                        width="400" />
+                    <div class="p-4">
+                        <h3 class="text-xl font-bold">Sleek Design</h3>
+                        <p class="mt-2 text-gray-600">Experience the Pinnacle of Automotive Refinement - Our Luxury
+                            Sports Cars Offer Unparalleled Performance and Style</p> <a
+                            class="mt-4 inline-block bg-black text-white px-4 py-2 rounded" href="#">Explore Now</a>
+                    </div>
+                </div>
+                <div class="bg-white shadow-md rounded-lg overflow-hidden"> <img alt="Luxury villa with pool"
+                        height="300"
+                        src="https://storage.googleapis.com/a1aa/image/J33Cfc5cRjJ0Mv1aSqZjY9rOzQzBT_nsY9qHu4A8DCM.jpg"
+                        width="400" />
+                    <div class="p-4">
+                        <h3 class="text-xl font-bold">Serene Retreats</h3>
+                        <p class="mt-2 text-gray-600">Immerse Yourself in Unbridled Luxury - Our Stunning Villas Provide
+                            the Perfect Backdrop for Unforgettable Getaways</p> <a
+                            class="mt-4 inline-block bg-black text-white px-4 py-2 rounded" href="#">Book Today</a>
+                    </div>
+                </div>
+                <div class="bg-white shadow-md rounded-lg overflow-hidden"> <img alt="White luxury car" height="300"
+                        src="https://storage.googleapis.com/a1aa/image/xCb12BjBIsrlL6fBwNL719b4zoIclgwKFPRm8KbG_QY.jpg"
+                        width="400" />
+                    <div class="p-4">
+                        <h3 class="text-xl font-bold">Uncompromising</h3>
+                        <p class="mt-2 text-gray-600">Indulge Your Senses with Our Exceptional Offerings - From
+                            High-Performance Vehicles to Luxurious Villas, We Have It All</p> <a
+                            class="mt-4 inline-block bg-black text-white px-4 py-2 rounded" href="#">Inquire Now</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section> <!-- Exceptional Experiences Section -->
+    <section class="container mx-auto px-4 py-16 text-center">
+        <div class="flex flex-col md:flex-row items-center">
+            <div class="md:w-1/2">
+                <h2 class="text-3xl font-bold">Exceptional Experiences</h2>
+                <p class="mt-4 text-lg">Elevate Your Lifestyle with Our Luxurious Rental Solutions - From
+                    High-Performance Vehicles to Lavish Villas and Yachts, We Curate the Finest Offerings to Exceed Your
+                    Expectations</p> <a class="mt-6 inline-block bg-black text-white px-6 py-3 rounded" href="#">Book
+                    Now</a>
+            </div>
+            <div class="md:w-1/2 mt-8 md:mt-0"> <img alt="Luxury car with palm trees" height="400"
+                    src="https://storage.googleapis.com/a1aa/image/9bcX1_YhVttl7Xg4jSaI99WfKGYZfLTaesnnQB-UtmI.jpg"
+                    width="600" /> </div>
+        </div>
+    </section> <!-- Luxury Rentals Section 2 -->
+    <section class="bg-gray-100 py-16">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-8">Luxury Rentals</h2>
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div class="bg-white shadow-md rounded-lg overflow-hidden text-center p-4"> <img alt="Black luxury car"
+                        height="150"
+                        src="https://storage.googleapis.com/a1aa/image/NzNgHoger10fexzBdPx2tI0Gc23QJLDy1Tjyh6R60aI.jpg"
+                        width="200" />
+                    <h3 class="text-xl font-bold mt-4">Sleek Design</h3>
+                    <p class="mt-2 text-gray-600">Refined Luxury</p> <a
+                        class="mt-4 inline-block bg-black text-white px-4 py-2 rounded" href="#">Discover More</a>
+                </div>
+                <div class="bg-white shadow-md rounded-lg overflow-hidden text-center p-4"> <img alt="White luxury car"
+                        height="150"
+                        src="https://storage.googleapis.com/a1aa/image/xCb12BjBIsrlL6fBwNL719b4zoIclgwKFPRm8KbG_QY.jpg"
+                        width="200" />
+                    <h3 class="text-xl font-bold mt-4">Serene</h3>
+                    <p class="mt-2 text-gray-600">Uncompromising Elegance</p> <a
+                        class="mt-4 inline-block bg-black text-white px-4 py-2 rounded" href="#">Book Today</a>
+                </div>
+                <div class="bg-white shadow-md rounded-lg overflow-hidden text-center p-4"> <img alt="Luxury yacht"
+                        height="150"
+                        src="https://storage.googleapis.com/a1aa/image/jOKA7YoAHPq3scxex_p0Dt_Lp99iZsLg5T9tFNHvCqk.jpg"
+                        width="200" />
+                    <h3 class="text-xl font-bold mt-4">Exquisite</h3>
+                    <p class="mt-2 text-gray-600">Elevated Elegance</p> <a
+                        class="mt-4 inline-block bg-black text-white px-4 py-2 rounded" href="#">Inquire Now</a>
+                </div>
+                <div class="bg-white shadow-md rounded-lg overflow-hidden text-center p-4"> <img alt="Luxury watch"
+                        height="150"
+                        src="https://storage.googleapis.com/a1aa/image/10VBgnxNlLyDfPeknaHBV11uWY0HDQqzqnEYSXlHmKg.jpg"
+                        width="200" />
+                    <h3 class="text-xl font-bold mt-4">Elevated Living</h3>
+                    <p class="mt-2 text-gray-600">Discover the Pinnacle of Luxury</p> <a
+                        class="mt-4 inline-block bg-black text-white px-4 py-2 rounded" href="#">Explore Now</a>
+                </div>
+            </div>
+        </div>
+    </section> <!-- Luxury Concierge Section -->
+    <section class="container mx-auto px-4 py-16">
+        <div class="flex justify-between items-center mb-8">
+            <h2 class="text-3xl font-bold">Luxury Concierge</h2> <a class="text-gray-600 hover:text-gray-900"
+                href="#">Book Now</a>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div class="bg-white shadow-md rounded-lg overflow-hidden"> <img alt="Luxury car with palm trees"
+                    height="300"
+                    src="https://storage.googleapis.com/a1aa/image/9bcX1_YhVttl7Xg4jSaI99WfKGYZfLTaesnnQB-UtmI.jpg"
+                    width="400" />
+                <div class="p-4">
+                    <h3 class="text-xl font-bold">Unparalleled Performance</h3>
+                    <p class="mt-2 text-gray-600">Elevate Your Experience with Our Exceptional Collection of Luxury
+                        Vehicles - Combining Cutting-Edge Technology</p>
+                </div>
+            </div>
+            <div class="bg-white shadow-md rounded-lg overflow-hidden"> <img alt="Luxury car with palm trees"
+                    height="300"
+                    src="https://storage.googleapis.com/a1aa/image/9bcX1_YhVttl7Xg4jSaI99WfKGYZfLTaesnnQB-UtmI.jpg"
+                    width="400" />
+                <div class="p-4">
+                    <h3 class="text-xl font-bold">Exquisite</h3>
+                    <p class="mt-2 text-gray-600">Discover the Pinnacle of Luxury Transportation - Our Pristine Jets
+                        Offer Unmatched Comfort and Convenience</p> <a
+                        class="mt-4 inline-block bg-black text-white px-4 py-2 rounded" href="#">Inquire Now</a>
+                </div>
+            </div>
+            <div class="bg-white shadow-md rounded-lg overflow-hidden"> <img alt="Luxury villa with pool" height="300"
+                    src="https://storage.googleapis.com/a1aa/image/J33Cfc5cRjJ0Mv1aSqZjY9rOzQzBT_nsY9qHu4A8DCM.jpg"
+                    width="400" />
+                <div class="p-4">
+                    <h3 class="text-xl font-bold">Serene Retreats</h3>
+                    <p class="mt-2 text-gray-600">Indulge in the Ultimate Luxury Escape - Our Villas Provide the Perfect
+                        Oasis for Relaxation and Indulgence</p> <a
+                        class="mt-4 inline-block bg-black text-white px-4 py-2 rounded" href="#">Book Today</a>
+                </div>
+            </div>
+        </div>
+    </section> <!-- Luxury Rentals Section 3 -->
+    <section class="bg-gray-100 py-16">
+        <div class="container mx-auto px-4">
+            <div class="flex justify-between items-center mb-8">
+                <h2 class="text-3xl font-bold">Luxury Rentals</h2> <a class="bg-black text-white px-4 py-2 rounded"
+                    href="#">Explore Now</a>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div class="bg-white shadow-md rounded-lg overflow-hidden text-center p-4"> <img alt="Yellow luxury car"
+                        height="150"
+                        src="https://storage.googleapis.com/a1aa/image/axO7qERWu4ZVg25c5mS4mALCNzsq-nBrdvli7ySdKbE.jpg"
+                        width="200" />
+                    <h3 class="text-xl font-bold mt-4">Sleek Design</h3>
+                    <p class="mt-2 text-gray-600">Refined Luxury</p> <a
+                        class="mt-4 inline-block bg-black text-white px-4 py-2 rounded" href="#">Discover More</a>
+                </div>
+                <div class="bg-white shadow-md rounded-lg overflow-hidden text-center p-4"> <img alt="Luxury watch"
+                        height="150"
+                        src="https://storage.googleapis.com/a1aa/image/10VBgnxNlLyDfPeknaHBV11uWY0HDQqzqnEYSXlHmKg.jpg"
+                        width="200" />
+                    <h3 class="text-xl font-bold mt-4">Exquisite</h3>
+                    <p class="mt-2 text-gray-600">Refined Elegance</p> <a
+                        class="mt-4 inline-block bg-black text-white px-4 py-2 rounded" href="#">Inquire Now</a>
+                </div>
+                <div class="bg-white shadow-md rounded-lg overflow-hidden text-center p-4"> <img alt="White luxury car"
+                        height="150"
+                        src="https://storage.googleapis.com/a1aa/image/xCb12BjBIsrlL6fBwNL719b4zoIclgwKFPRm8KbG_QY.jpg"
+                        width="200" />
+                    <h3 class="text-xl font-bold mt-4">Unparalleled Quality</p>
+                        <p class="mt-2 text-gray-600">Elevated Timekeeping</p> <a
+                            class="mt-4 inline-block bg-black text-white px-4 py-2 rounded" href="#">Book Today</a>
+                </div>
+                <div class="bg-white shadow-md rounded-lg overflow-hidden text-center p-4"> <img alt="Luxury watch"
+                        height="150"
+                        src="https://storage.googleapis.com/a1aa/image/10VBgnxNlLyDfPeknaHBV11uWY0HDQqzqnEYSXlHmKg.jpg"
+                        width="200" />
+                    <h3 class="text-xl font-bold mt-4">Exceptional Style</h3>
+                    <p class="mt-2 text-gray-600">Sophisticated Luxury</p> <a
+                        class="mt-4 inline-block bg-black text-white px-4 py-2 rounded" href="#">Explore Now</a>
+                </div>
+            </div>
+        </div>
+    </section> <!-- Footer -->
+    <footer class="bg-black text-white py-16">
+        <div class="container mx-auto px-4">
+            <div class="flex justify-center space-x-8 mb-8"> <img alt="Shell logo" height="50"
+                    src="https://storage.googleapis.com/a1aa/image/j6TjWmlVeGAJQYuFTd56kQaB1eDUXBmtfqdpZ0m_MIA.jpg"
+                    width="100" /> <img alt="Ferrari logo" height="50"
+                    src="https://storage.googleapis.com/a1aa/image/VjrnsF4P__ryqea0jFqvT_Auc6m1qVFzcQKLcrfygWI.jpg"
+                    width="100" /> <img alt="Rolex logo" height="50"
+                    src="https://storage.googleapis.com/a1aa/image/1b0tWTHpoNnd2AbslwOevq9rxqvp-7JOthhFEZNTmOM.jpg"
+                    width="100" /> <img alt="Prada logo" height="50"
+                    src="https://storage.googleapis.com/a1aa/image/iSoF-_wNWAyF5O7ls_c0ddQmyoSfIMGhzvtNpyZ0KJM.jpg"
+                    width="100" /> </div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center md:text-left">
+                <div>
+                    <h3 class="text-xl font-bold mb-4">© 2023 LuxLease, Inc. All rights reserved.</h3>
+                    <p class="text-gray-400">Guides Links</p>
+                    <ul class="mt-4 space-y-2">
+                        <li><a class="text-gray-400 hover:text-white" href="#">Home</a></li>
+                        <li><a class="text-gray-400 hover:text-white" href="#">About</a></li>
+                        <li><a class="text-gray-400 hover:text-white" href="#">Products</a></li>
+                        <li><a class="text-gray-400 hover:text-white" href="#">Contact</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-xl font-bold mb-4">Explore More</h3>
+                    <ul class="mt-4 space-y-2">
+                        <li><a class="text-gray-400 hover:text-white" href="#">Rentals</a></li>
+                        <li><a class="text-gray-
+    @endsection
+    

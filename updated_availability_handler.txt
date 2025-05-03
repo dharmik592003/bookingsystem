@@ -1,0 +1,47 @@
+// Updated AJAX success handler for availability check
+success: function(data) {
+    // Clear previous disabled dates
+    $('.datepicker').datepicker('setDatesDisabled', []);
+
+    // Process booked slots
+    var disabledDates = [];
+    data.booked_slots.forEach(function(slot) {
+        // Convert date strings to Date objects
+        var fromDate = new Date(slot.from);
+        var toDate = new Date(slot.to);
+        
+        // Add all dates in range to disabled dates array
+        for (var d = new Date(fromDate); d <= toDate; d.setDate(d.getDate() + 1)) {
+            disabledDates.push(new Date(d));
+        }
+    });
+
+    // Disable booked dates in datepicker
+    $('.datepicker').datepicker('setDatesDisabled', disabledDates);
+
+    // Process available time slots
+    var availableSlots = data.available_slots;
+    updateTimeSlots(availableSlots);
+
+    // Rest of existing success handler code...
+},
+
+// Updated time slot filtering function
+function updateTimeSlots(availableSlots) {
+    // Filter slots where available is true
+    var filteredSlots = availableSlots.filter(function(slot) {
+        return slot.available === true;
+    });
+
+    // Clear existing options
+    $('#time_slot_start, #time_slot_end').empty();
+
+    // Add available slots to dropdowns
+    filteredSlots.forEach(function(slot) {
+        var option = $('<option></option>')
+            .attr('value', slot.start)
+            .text(slot.start + ' - ' + slot.end);
+        
+        $('#time_slot_start, #time_slot_end').append(option);
+    });
+}
